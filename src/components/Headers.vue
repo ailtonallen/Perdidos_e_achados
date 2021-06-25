@@ -4,8 +4,7 @@
             <nav>
                 <p class="brand">Perdidos e<strong> Achados</strong></p>
            
-                <ul>
-                    
+                <ul>                    
                     <li>
                         <router-link to="/perdidos">Perdidos</router-link> 
                     </li>
@@ -18,7 +17,6 @@
                    
                     <button>Login</button>
                 </ul>
-                <router-view/>
             </nav>
             <div class="header-block">
                 <div class="text">
@@ -35,7 +33,7 @@
             </div>
 
         </div>
-    </header>
+  </header>
 </template>
 
 <script>
