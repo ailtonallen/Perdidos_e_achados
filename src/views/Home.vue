@@ -1,0 +1,624 @@
+<template>
+  <body>
+    
+<section class="catalog" id="catalog">
+        <div class="content">
+            <div class="title-wrapper-catalog">
+                <p>Encontre o seu item perdido aqui!</p>
+                <h3>Perdidos e Achados</h3>
+
+            </div>
+
+            <div class="filter-card">
+                <input type="text" class="search-input" placeholder="Encontre o seu perdido" />
+
+                <button class="search-button">Pesquisar</button>
+
+            </div>
+
+            <div class="card-wrapper">
+                <div class="card-item">
+                    <img src="../assets/gato-persa-3.jpg" alt="pet">
+                    <div class="card-content">
+                        <h3>Perdido</h3>
+                        <p>Quelimane - Zambézia <br> Data: 12/02/2020<br> Nome: Persa <br> Recompensa: 1000mt <br> Proprietario: Ailton Allen</p>
+                        <button type="button">Ajude!</button>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <img src="../assets/gato-siames.jpg" alt="pet">
+                    <div class="card-content">
+                        <h3>Perdido</h3>
+                        <p>Pemba - Cabo Delgado  Data: 12/02/2020 Nome: Miau <br> Propietario: Ailton Allen</p>
+                        <button type="button">Ajude!</button>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <img src="../assets/pastor-alemao.jpg" alt="pet">
+                    <div class="card-content">
+                        <h3>Achado!</h3>
+                        <p>Nampula - Nampula  Data: 12/02/2020 Nome: Alemão <br> Propietario: Ailton Allen</p>
+                        <button type="button">Ajude!</button>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <img src="../assets/yorkshire.jpg" alt="pet">
+                    <div class="card-content">
+                        <h3>Perdido</h3>
+                        <p>Angoche - Nampula Data: 12/02/2020 Nome: york <br> Propietario: Ailton Allen</p>
+                        <button type="button">Ajude!</button>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <img src="../assets/calopsita.jpeg" alt="pet">
+                    <div class="card-content">
+                        <h3>Perdido</h3>
+                        <p>Beira - Sofala  Data: 12/02/2020 Nome: Calopsita <br> Propietario: Ailton Allen</p>
+                        <button type="button">Ajude!</button>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <img src="../assets/furao.jpg" alt="pet">
+                    <div class="card-content">
+                        <h3>Achado!</h3>
+                        <p>Quelimane - Zambézia  Data: 12/02/2020 Nome: Furão <br> Propietario: Ailton Allen</p>
+                        <button type="button">Ajude!</button>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="../assets/coelho1.jpg" alt="pet">
+                    <div class="card-content">
+                        <h3>Perdido</h3>
+                        <p>Quelimane - Zambézia  Data: 12/02/2020 Nome: Tom <br> Propietario: Ailton Allen</p>
+                        <button type="button">Ajude!</button>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="../assets/gato-vira-lata.jpg" alt="pet">
+                    <div class="card-content">
+                        <h3>Achado!</h3>
+                        <p>Boane - Maputo  Data: 12/02/2020 Nome: Sardinha Propietario: <br>Ailton Allen </p>
+                        <button type="button">Ajude!</button>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <img src="../assets/96.cão-e-gato.png" alt="pet">
+                    <div class="card-content">
+                        <h3>Perdido</h3>
+                        <p>Matola - Maputo  Data: 12/02/2020 Nome: Corujinha <br> Propietario: Ailton Allen</p>
+                        <button type="button">Ajude!</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <section class="sobre" id="sobre">
+        <div class="content">
+            <div class="title-wrapper-sobre">
+                <p>Conheça sobre nós</p>
+                <h3>Sobre</h3>
+
+            </div>
+            <div class="sobre-content">
+                <div class="left">
+                    <img src="../assets/about.png" alt="sobre">
+
+                </div>
+                <div class="right">
+                    <h3>Eu sou Ailton Allen!</h3>
+                    <p>
+                        Sempre aberto a novos desafios e pronto para enfrentar mudanças. 
+                        Licenciado em Tecnologias de informação e DEV em formação. 
+                        Nos meus tempos livres assisto séries e filmes, vejo amigos e familiares. 
+                        Desenvolvi este projeto como trabalho de final de curso, escolhi este tema porque é algo que vai ajudar positivamente a minha comunidade. 
+                        Perder um item ou um pessoa está entre as piores dores do ser humano, pois não há como saber se a pessoa continua viva para voltar para casa.
+                        O lado bom é que, com o crescimento de novas tecnologias e a boa vontade das pessoas, movidas por um sentimento coletivo de solidariedade,
+                        as chances de reencontro são maiores.
+                        <br>
+                        <br>
+                        Entre em contacto comigo: 
+                        <a href="https://www.linkedin.com/in/a%C3%ADltonallen/">LinkedIn</a> 
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <section class="recurso" id="recurso">
+        <div class="content">
+            <div class="title-wrapper-recurso">
+                <p>O que você pode fazer</p>
+                <h3>Recursos</h3>
+            </div>
+            <div class="recurso-card-block">
+                <div class="recurso-card-item">
+                    <img src="../assets/feature-planet.png" alt="Recurso" >
+                    <div class="recurso-text-content">
+                        <h3>Cadastre-se</h3>
+                        <p>Perdeu alguma coisa? <br> Encontrou um item na rua? <br>Seja voluntário!</p>
+
+                    </div>
+
+                </div>
+               
+                    </div>
+
+                </div>
+                
+    </section>
+     <footer>
+        <div class="main">
+            <div class="content footer-link">
+                <div class="footer-company">
+                    <h4>Empresa</h4>
+                    <h4>Sobre</h4>
+                    <h6>Contato</h6>
+
+                </div>
+                <div class="footer-rental">
+                    <h4>Serviços</h4>
+                    <h6>Achados e Perdidos</h6>
+                    <h6>Help</h6>
+
+                </div>
+                <div class="footer-social">
+                    <h4>Stay connected</h4>
+                    <div class="social-icom">
+                        <img src="../assets/instagram.png" alt="Instagram" >
+                        <img src="../assets/facebook.png" alt="Facebook" >
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact US</h4>
+                    <h6>+258 840588122</h6>
+                    <h6>ailtonallen@gmail.com</h6>
+                    <h6>Zambézia - Quelimane</h6>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="last">Junte-se ao time dos Heróis</div>
+    </footer>
+  </body>
+</template>
+
+<script>
+
+export default {
+  name: 'App',
+  components: {
+    
+  },
+
+  data () {
+    return {  
+      anuncios: [],
+      
+    }
+  },
+
+  methods: {
+    perdidos(){
+        this.$router.push({name: 'Perdidos'})
+    }
+}
+}
+</script>
+
+<style>
+ 
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --lightblue: #2a91a3;
+    --blue: #00285F;
+    --gray: #EDEDED;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+
+.content {
+    max-width: 1000px;
+    min-width: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    
+}
+
+
+
+/*    page catalogo                          */
+
+section .catalog {
+    width: 100vw;
+    padding: 100px;
+}
+  
+section .filter-card {
+    width: 980px;
+    height: 150px;
+    background: var(--lightblue);
+    border-radius: 8px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+  
+.search-input {
+    width: 700px;
+    height: 50px;
+    border: none;
+    border-radius: 4px 0px 0px 4px;
+    text-indent: 10px;
+}
+  
+.search-button {
+    width: 150px;
+    height: 50px;
+    border-radius: 0px 4px 4px 0px;
+    border: none;
+    background: var(--blue);
+    color: white;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: 0.2s ease;
+}
+  
+.search-button:hover {
+    background: #dedede;
+    color: var(--blue);
+}
+  
+.title-wrapper-catalog {
+    margin-top: 10px;
+    padding-bottom: 20px;
+}
+  
+section .card-wrapper {
+    max-width: 1000px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    grid-gap: 30px;
+    padding-top: 50px;
+}
+  
+section .card-item {
+    height: 400px;
+    background: var(--gray);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+  
+.card-content {
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+  
+.card-item img {
+    width: 245px;
+    padding: 20px 20px 30px 20px;
+    text-align: center;
+}
+  
+.card-item h4 {
+    width: 90%;
+}
+  
+.card-item p {
+    width: 90%;
+    font-style: italic;
+    color: #00000070;
+}
+  
+.card-item button {
+    width: 90%;
+    padding: 15px 0px;
+    border: none;
+    background: var(--blue);
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-bottom: 10px;
+}
+  
+.card-item button:hover {
+    background: #dedede;
+    color: var(--blue);
+}
+
+/*  sobre  */
+
+.sobre {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 10px;
+}
+
+.sobre-content {
+    max-width: 1000px;
+    min-width: 300px;
+    height: 600px;
+    background: #dedede3b;
+    margin: 0 auto;
+    border-radius: 8px;
+    z-index: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left {
+    width: 25%;
+    min-width: 300px;
+    height: 100%;
+    border-radius: 8px;
+    background: #000000a1;
+    
+}
+
+.right {
+    width: 65%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 10%;
+}
+
+.right h3 {
+    text-align: right;
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.right p {
+    max-width: 90%;
+    font-size: 1em;
+    letter-spacing: 2px;
+    text-align: right;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+/* Recursos */
+
+.recurso {
+    width: 100%;
+    height: 100%;
+    background: var(--gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+}
+.title-wrapper-recurso {
+    padding: 20px 0px;
+}
+
+.recurso-card-block {
+    max-width: 1000px;
+    min-width: 300px;
+    height: 250px;
+    background:white;
+    margin: 0 auto;
+    border-radius: 8px;
+    z-index: 10px;
+    padding: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    grid-gap: 30px;
+}
+
+.recurso-card-item {
+    max-width: 420px;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid #dedede3b;
+    border-radius: 4px;
+
+}
+
+.recurso-text-content {
+    max-width: 60%;
+    margin: 5px;
+}
+
+.recurso-card-item img {
+    width: 64px;
+    height: 64px;
+}
+
+/* Footer */
+
+footer {
+    width: 100%;
+    height: 250px;
+}
+
+footer .main {
+    width: 100%;
+    height: 200px;
+    background: var(--lightblue);
+    padding: 20px 10px;
+}
+
+.footer-link {
+    max-width: 1000px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.footer-company, .footer-rental, .footer-social, .footer-contact {
+    color: white;
+    height: 100%;
+    min-height: 100px;
+
+}
+
+.footer-link h4 {
+    margin-bottom: 10px;
+}
+
+.footer-link {
+    margin-bottom: 8px;
+}
+
+.main .footer-social img {
+    width: 32px;
+    height: 32px;
+}
+
+footer .last {
+    width: 100%;
+    height: 50px;
+    background: var(--blue);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ajustes responssivo */
+
+@media (max-width: 576px) {
+    nav ul li {
+        display: none;
+
+    }
+
+    .header-block img {
+        width: 70%;
+        position: absolute;
+        right: 16%;
+        top: 30%;
+
+    }
+
+    .header-block .text {
+        position: absolute;
+        bottom: 10%;
+        left: 15;
+
+    }
+
+    section .filter-card {
+        width: 370px;
+        padding: 0px 10px;
+    }
+
+    .search-input {
+        max-width: 700px;
+        min-width: 240px;
+        
+
+    }
+    .search-button {
+        max-width: 10px;
+        min-width: 80px;
+    }
+
+    .sobre {
+        margin-top: 100px;
+
+    }
+
+    .title-wrapper-sobre {
+        margin-bottom: 20px;
+    }
+
+    .sobre-content {
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .left {
+        display: none;
+    }
+
+    .right {
+        width: 90%;
+
+    }
+
+    .right p {
+        width: 100%;
+        margin: 0px;
+        text-align: left;
+    }
+
+    .recurso {
+        height: 100%;
+    }
+
+    .recurso-card-block {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer {
+        height: 100%;
+
+    }
+
+    footer .main {
+        height: 100%;
+    }
+
+    .footer-link {
+        flex-direction: column;
+        padding-left: 10%;
+        
+    }
+}
+
+</style>
