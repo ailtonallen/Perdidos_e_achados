@@ -1,5 +1,11 @@
 <template>
+  
   <div>
+      <div>
+    <Header />
+    <router-view/>
+    
+  </div>
     <section class="catalog" id="catalog">
         <div class="content">
             <div class="title-wrapper-catalog">
@@ -14,169 +20,121 @@
                 <button class="search-button">Pesquisar</button>
 
             </div>
-
-            <div class="card-wrapper">
-                <div class="card-item">
-                    <img src="../assets/gato-persa-3.jpg" alt="pet">
-                    <div class="card-content">
-                        <h3>Perdido</h3>
-                        <p>Quelimane - Zambézia <br> Data: 12/02/2020<br> Nome: Persa <br> Recompensa: 1000mt <br> Proprietario: Ailton Allen</p>
-                        <button type="button">Ajude!</button>
-                    </div>
-                </div>
-
-                <div class="card-item">
-                    <img src="../assets/gato-siames.jpg" alt="pet">
-                    <div class="card-content">
-                        <h3>Perdido</h3>
-                        <p>Pemba - Cabo Delgado  Data: 12/02/2020 Nome: Miau <br> Propietario: Ailton Allen</p>
-                        <button type="button">Ajude!</button>
-                    </div>
-                </div>
-
-                <div class="card-item">
-                    <img src="../assets/pastor-alemao.jpg" alt="pet">
-                    <div class="card-content">
-                        <h3>Achado!</h3>
-                        <p>Nampula - Nampula  Data: 12/02/2020 Nome: Alemão <br> Propietario: Ailton Allen</p>
-                        <button type="button">Ajude!</button>
-                    </div>
-                </div>
-
-                <div class="card-item">
-                    <img src="../assets/yorkshire.jpg" alt="pet">
-                    <div class="card-content">
-                        <h3>Perdido</h3>
-                        <p>Angoche - Nampula Data: 12/02/2020 Nome: york <br> Propietario: Ailton Allen</p>
-                        <button type="button">Ajude!</button>
-                    </div>
-                </div>
-
-                <div class="card-item">
-                    <img src="../assets/calopsita.jpeg" alt="pet">
-                    <div class="card-content">
-                        <h3>Perdido</h3>
-                        <p>Beira - Sofala  Data: 12/02/2020 Nome: Calopsita <br> Propietario: Ailton Allen</p>
-                        <button type="button">Ajude!</button>
-                    </div>
-                </div>
-
-                <div class="card-item">
-                    <img src="../assets/furao.jpg" alt="pet">
-                    <div class="card-content">
-                        <h3>Achado!</h3>
-                        <p>Quelimane - Zambézia  Data: 12/02/2020 Nome: Furão <br> Propietario: Ailton Allen</p>
-                        <button type="button">Ajude!</button>
-                    </div>
-                </div>
-                <div class="card-item">
-                    <img src="../assets/coelho1.jpg" alt="pet">
-                    <div class="card-content">
-                        <h3>Perdido</h3>
-                        <p>Quelimane - Zambézia  Data: 12/02/2020 Nome: Tom <br> Propietario: Ailton Allen</p>
-                        <button type="button">Ajude!</button>
-                    </div>
-                </div>
-                <div class="card-item">
-                    <img src="../assets/gato-vira-lata.jpg" alt="pet">
-                    <div class="card-content">
-                        <h3>Achado!</h3>
-                        <p>Boane - Maputo  Data: 12/02/2020 Nome: Sardinha Propietario: <br>Ailton Allen </p>
-                        <button type="button">Ajude!</button>
-                    </div>
-                </div>
-                <div class="card-item">
-                    <img src="../assets/96.cão-e-gato.png" alt="pet">
-                    <div class="card-content">
-                        <h3>Perdido</h3>
-                        <p>Matola - Maputo  Data: 12/02/2020 Nome: Corujinha <br> Propietario: Ailton Allen</p>
-                        <button type="button">Ajude!</button>
-                    </div>
-                </div>
-
+<div class="row">
+            <div class="col-md-4">
+         <div class="card bg-light">
+            <img class="card-img-top" src="../assets/gato-persa-3.jpg" alt="Card image cap">
+            <div class="card-body">
+               <h5 class="card-title border-bottom pb-3">Card title <a href="#" class="float-right btn btn-sm btn-info d-inline-flex share"><i class="fas fa-share-alt"></i></a></h5>
+               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+               <a href="#" class="btn btn-sm btn-info float-right">Read more <i class="fas fa-angle-double-right"></i></a>
             </div>
-
+         </div>
+      </div>
+       <div class="col-md-4">
+         <div class="card bg-light">
+            <img class="card-img-top" src="../assets/gato-persa-3.jpg" alt="Card image cap">
+            <div class="card-body">
+               <h5 class="card-title border-bottom pb-3">Card title <a href="#" class="float-right btn btn-sm btn-info d-inline-flex share"><i class="fas fa-share-alt"></i></a></h5>
+               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+               <a href="#" class="btn btn-sm btn-info float-right">Read more <i class="fas fa-angle-double-right"></i></a>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-4">
+         <div class="card bg-light">
+            <img class="card-img-top" src="../assets/gato-persa-3.jpg" alt="Card image cap">
+            <div class="card-body">
+               <h5 class="card-title border-bottom pb-3">Card title <a href="#" class="float-right btn btn-sm btn-info d-inline-flex share"><i class="fas fa-share-alt"></i></a></h5>
+               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+               <a href="#" class="btn btn-sm btn-info float-right">Read more <i class="fas fa-angle-double-right"></i></a>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-4">
+         <div class="card bg-light">
+            <img class="card-img-top" src="../assets/gato-persa-3.jpg" alt="Card image cap">
+            <div class="card-body">
+               <h5 class="card-title border-bottom pb-3">Card title <a href="#" class="float-right btn btn-sm btn-info d-inline-flex share"><i class="fas fa-share-alt"></i></a></h5>
+               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+               <a href="#" class="btn btn-sm btn-info float-right">Read more <i class="fas fa-angle-double-right"></i></a>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-4">
+         <div class="card bg-light">
+            <img class="card-img-top" src="../assets/gato-persa-3.jpg" alt="Card image cap">
+            <div class="card-body">
+               <h5 class="card-title border-bottom pb-3">Card title <a href="#" class="float-right btn btn-sm btn-info d-inline-flex share"><i class="fas fa-share-alt"></i></a></h5>
+               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+               <a href="#" class="btn btn-sm btn-info float-right">Read more <i class="fas fa-angle-double-right"></i></a>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-4">
+         <div class="card bg-light">
+            <img class="card-img-top" src="../assets/gato-persa-3.jpg" alt="Card image cap">
+            <div class="card-body">
+               <h5 class="card-title border-bottom pb-3">Card title <a href="#" class="float-right btn btn-sm btn-info d-inline-flex share"><i class="fas fa-share-alt"></i></a></h5>
+               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+               <a href="#" class="btn btn-sm btn-info float-right">Read more <i class="fas fa-angle-double-right"></i></a>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-4">
+         <div class="card bg-light">
+            <img class="card-img-top" src="../assets/gato-persa-3.jpg" alt="Card image cap">
+            <div class="card-body">
+               <h5 class="card-title border-bottom pb-3">Card title <a href="#" class="float-right btn btn-sm btn-info d-inline-flex share"><i class="fas fa-share-alt"></i></a></h5>
+               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+               <a href="#" class="btn btn-sm btn-info float-right">Read more <i class="fas fa-angle-double-right"></i></a>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-4">
+         <div class="card bg-light">
+            <img class="card-img-top" src="../assets/gato-persa-3.jpg" alt="Card image cap">
+            <div class="card-body">
+               <h5 class="card-title border-bottom pb-3">Card title <a href="#" class="float-right btn btn-sm btn-info d-inline-flex share"><i class="fas fa-share-alt"></i></a></h5>
+               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+               <a href="#" class="btn btn-sm btn-info float-right">Read more <i class="fas fa-angle-double-right"></i></a>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-4">
+         <div class="card bg-light">
+            <img class="card-img-top" src="../assets/gato-persa-3.jpg" alt="Card image cap">
+            <div class="card-body">
+               <h5 class="card-title border-bottom pb-3">Card title <a href="#" class="float-right btn btn-sm btn-info d-inline-flex share"><i class="fas fa-share-alt"></i></a></h5>
+               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+               <a href="#" class="btn btn-sm btn-info float-right">Read more <i class="fas fa-angle-double-right"></i></a>
+            </div>
+         </div>
+      </div>
+</div>
+            
         </div>
 
     </section>
 
-    <section class="sobre" id="sobre">
-        <div class="content">
-            <div class="title-wrapper-sobre">
-                <p>Conheça sobre nós</p>
-                <h3>Sobre</h3>
-
-            </div>
-            <div class="sobre-content">
-                <div class="left">
-                    <img src="../assets/about.png" alt="sobre">
-
-                </div>
-                <div class="right">
-                    <h3>Eu sou Ailton Allen!</h3>
-                    <p>
-                        Sempre aberto a novos desafios e pronto para enfrentar mudanças. 
-                        Licenciado em Tecnologias de informação e DEV em formação. 
-                        Nos meus tempos livres assisto séries e filmes, vejo amigos e familiares. 
-                        Desenvolvi este projeto como trabalho de final de curso, escolhi este tema porque é algo que vai ajudar positivamente a minha comunidade. 
-                        Perder um item ou um pessoa está entre as piores dores do ser humano, pois não há como saber se a pessoa continua viva para voltar para casa.
-                        O lado bom é que, com o crescimento de novas tecnologias e a boa vontade das pessoas, movidas por um sentimento coletivo de solidariedade,
-                        as chances de reencontro são maiores.
-                        <br>
-                        <br>
-                        Entre em contacto comigo: 
-                        <a href="https://www.linkedin.com/in/a%C3%ADltonallen/">LinkedIn</a> 
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <section class="recurso" id="recurso">
-        <div class="content">
-            <div class="title-wrapper-recurso">
-                <p>O que você pode fazer</p>
-                <h3>Recursos</h3>
-            </div>
-            <div class="recurso-card-block">
-                <div class="recurso-card-item">
-                    <img src="../assets/feature-planet.png" alt="Recurso" >
-                    <div class="recurso-text-content">
-                        <h3>Cadastre-se</h3>
-                        <p>Perdeu alguma coisa? <br> Encontrou um item na rua? <br>Seja voluntário!</p>
-
-                    </div>
-
-                </div>
-               
-                    </div>
-
-                </div>
-                
-    </section>
+    
   </div>
 </template>
 
 <script>
+import Header from '@/components/Headers'
 
 export default {
   name: 'Home',
   components: {
-    
+    Header
   },
-
   data () {
     return {  
       anuncios: [],
       
     }
   },
-
   methods: {
     perdidos(){
         this.$router.push({name: 'Perdidos'})
@@ -186,7 +144,48 @@ export default {
 </script>
 
 <style>
- 
+ .social-card-header{
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 96px;
+}
+.social-card-header i {
+    font-size: 32px;
+    color:#FFF;
+}
+.bg-facebook {
+    background-color:#3b5998;
+}
+.text-facebook {
+    color:#3b5998;
+}
+.bg-google-plus{
+    background-color:#dd4b39;
+}
+.text-google-plus {
+    color:#dd4b39;
+}
+.bg-twitter {
+    background-color:#1da1f2;
+}
+.text-twitter {
+    color:#1da1f2;
+}
+.bg-pinterest {
+    background-color:#bd081c;
+}
+.text-pinterest {
+    color:#bd081c;
+}
+.share:hover {
+        text-decoration: none;
+    opacity: 0.8;
+}
 * {
     margin: 0px;
     padding: 0px;
@@ -194,19 +193,15 @@ export default {
     outline: none;
     font-family: 'Roboto', sans-serif;
 }
-
 :root {
     --lightblue: #2a91a3;
     --blue: #00285F;
     --gray: #EDEDED;
 }
-
 html, body {
     width: 100%;
     overflow-x: hidden;
 }
-
-
 .content {
     max-width: 1000px;
     min-width: 300px;
@@ -216,11 +211,7 @@ html, body {
     padding: 10px;
     
 }
-
-
-
 /*    page catalogo                          */
-
 section .catalog {
     width: 100vw;
     padding: 100px;
@@ -268,70 +259,7 @@ section .filter-card {
     padding-bottom: 20px;
 }
   
-section .card-wrapper {
-    max-width: 1000px;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-    grid-gap: 30px;
-    padding-top: 50px;
-}
-  
-section .card-item {
-    height: 400px;
-    background: var(--gray);
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
-  
-.card-content {
-    height: 40%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
-  
-.card-item img {
-    width: 245px;
-    padding: 20px 20px 30px 20px;
-    text-align: center;
-}
-  
-.card-item h4 {
-    width: 90%;
-}
-  
-.card-item p {
-    width: 90%;
-    font-style: italic;
-    color: #00000070;
-}
-  
-.card-item button {
-    width: 90%;
-    padding: 15px 0px;
-    border: none;
-    background: var(--blue);
-    border-radius: 4px;
-    color: white;
-    font-weight: bold;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: 0.3s ease;
-    margin-bottom: 10px;
-}
-  
-.card-item button:hover {
-    background: #dedede;
-    color: var(--blue);
-}
-
 /*  sobre  */
-
 .sobre {
     width: 100%;
     height: 100%;
@@ -340,7 +268,6 @@ section .card-item {
     justify-content: center;
     padding: 50px 10px;
 }
-
 .sobre-content {
     max-width: 1000px;
     min-width: 300px;
@@ -355,7 +282,6 @@ section .card-item {
     align-items: center;
     justify-content: space-between;
 }
-
 .left {
     width: 25%;
     min-width: 300px;
@@ -364,7 +290,6 @@ section .card-item {
     background: #000000a1;
     
 }
-
 .right {
     width: 65%;
     height: 100%;
@@ -374,13 +299,11 @@ section .card-item {
     justify-content: flex-start;
     padding-top: 10%;
 }
-
 .right h3 {
     text-align: right;
     width: 90%;
     margin-bottom: 20px;
 }
-
 .right p {
     max-width: 90%;
     font-size: 1em;
@@ -388,9 +311,7 @@ section .card-item {
     text-align: right;
     color: rgba(0, 0, 0, 0.4);
 }
-
 /* Recursos */
-
 .recurso {
     width: 100%;
     height: 100%;
@@ -403,7 +324,6 @@ section .card-item {
 .title-wrapper-recurso {
     padding: 20px 0px;
 }
-
 .recurso-card-block {
     max-width: 1000px;
     min-width: 300px;
@@ -417,7 +337,6 @@ section .card-item {
     grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
     grid-gap: 30px;
 }
-
 .recurso-card-item {
     max-width: 420px;
     height: 150px;
@@ -427,111 +346,84 @@ section .card-item {
     justify-content: space-around;
     border: 1px solid #dedede3b;
     border-radius: 4px;
-
 }
-
 .recurso-text-content {
     max-width: 60%;
     margin: 5px;
 }
-
 .recurso-card-item img {
     width: 64px;
     height: 64px;
 }
-
 /* Ajustes responssivo */
-
 @media (max-width: 576px) {
     nav ul li {
         display: none;
-
     }
-
     .header-block img {
         width: 70%;
         position: absolute;
         right: 16%;
         top: 30%;
-
     }
-
     .header-block .text {
         position: absolute;
         bottom: 10%;
         left: 15;
-
     }
-
     section .filter-card {
         width: 370px;
         padding: 0px 10px;
     }
-
     .search-input {
         max-width: 700px;
         min-width: 240px;
         
-
     }
     .search-button {
         max-width: 10px;
         min-width: 80px;
     }
-
     .sobre {
         margin-top: 100px;
-
     }
-
     .title-wrapper-sobre {
         margin-bottom: 20px;
     }
-
     .sobre-content {
         flex-direction: column;
         height: 100%;
     }
-
     .left {
         display: none;
     }
-
     .right {
         width: 90%;
-
     }
-
     .right p {
         width: 100%;
         margin: 0px;
         text-align: left;
     }
-
     .recurso {
         height: 100%;
     }
-
     .recurso-card-block {
         height: 100%;
         display: flex;
         flex-direction: column;
     }
-
     footer {
         height: 100%;
-
     }
-
     footer .main {
         height: 100%;
     }
-
     .footer-link {
         flex-direction: column;
         padding-left: 10%;
         
     }
 }
-
 </style>
+© 2021 GitHub, Inc.

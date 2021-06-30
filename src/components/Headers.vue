@@ -38,7 +38,6 @@
 
 <script>
 export default {
-
 }
 </script>
 
@@ -57,22 +56,18 @@ nav ul {
     display: flex;
     flex-direction: row;
 }
-
 nav ul li {
     list-style: none;
     padding: 10px;
     cursor: pointer;
 }
-
 nav ul li a {
     color: var(--blue);
     text-decoration: none;
 }
-
 nav ul li a:hover {
     color: #00285F83;
 }
-
 nav ul button {
     border: 1px solid var(--blue);
     background: transparent;
@@ -83,13 +78,11 @@ nav ul button {
     font-weight: bold;
     border-radius: 4px;
 }
-
 nav ul button:hover {
     transition: background, color 0.6s;
     background: var(--blue);
     color: white;
 }
-
 .content .header-block {
     max-width: 1000px;
     min-width: 300px;
@@ -103,20 +96,17 @@ nav ul button:hover {
     z-index: 10;
     padding: 10px;
 }
-
 .header-block img {
     width: 50%;
     position: absolute;
     right: 2%;
     bottom: 2%;
 }
-
 .header-block .text {
     position: absolute;
     bottom: 30%;
     left: 15%;
 }
-
 .header-block .text h2 {
     color: white;
     margin-bottom: 20px;
@@ -124,7 +114,6 @@ nav ul button:hover {
     transform: translateX(-20px);
     transition: transform 0.5s;
 }
-
 .header-block .text p {
     max-width: 280px;
     color: white;

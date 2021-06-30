@@ -1,17 +1,21 @@
 <template>
   <div>
-    <Headers/>
+    <Header />
+    <h1>Perdidos</h1>
     
   </div>
 </template>
 
 <script>
-import Headers from '../components/Headers.vue'
+import Header from '@/components/Headers'
+
+
 export default {
-name: 'Perdidos',
-components: {
-  Headers
-}
+  name: 'App',
+
+  components: {
+    Header
+      }
 }
 </script>
 
