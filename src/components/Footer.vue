@@ -25,15 +25,11 @@
                         <div class="kilimanjaro_part">
                             <h5>Tags Widget</h5>
                             <ul class=" kilimanjaro_widget">
-                                <li><a href="#">Classy</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Creative</a></li>
+                                <li><a href="#">Achado</a></li>
+                                <li><a href="#">Perdido</a></li>
+                                <li><a href="#">Encontrado</a></li>
                                 <li><a href="#">One Page</a></li>
-                                <li><a href="#">Multipurpose</a></li>
-                                <li><a href="#">Minimal</a></li>
-                                <li><a href="#">Classic</a></li>
-                                <li><a href="#">Medical</a></li>
-                            </ul>
+                                </ul>
                         </div>
 
                         <div class="kilimanjaro_part m-top-15">
@@ -42,7 +38,6 @@
                                 <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Terms & Conditions</a></li>
                                 <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>About Licences</a></li>
                                 <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Help & Support</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Careers</a></li>
                                 <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Privacy Policy</a></li>
                                 <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Community & Forum</a></li>
                             </ul>
@@ -50,7 +45,7 @@
                     </div>
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="kilimanjaro_part">
-                            <h5>Latest News</h5>
+                            <h5>Ultimos anúncios</h5>
                             <div class="kilimanjaro_blog_area">
                                 <div class="kilimanjaro_thumb">
 								<img class="img-fluid" src="https://3.bp.blogspot.com/--C1wpaf_S4M/W7V__10nRoI/AAAAAAAAK24/1NSfapuYSIY0f0wzXY9NgoH0FjQLT07YACKgBGAs/s1600/maxresdefault.jpg" alt="">
@@ -83,15 +78,15 @@
                             <h5>Quick Contact</h5>
                             <div class="kilimanjaro_single_contact_info">
                                 <h5>Phone:</h5>
-                                <p>+255 789 54 50 40 <br> +2255 766 90 94 00</p>
+                                <p>+258 84 05 88 122 <br> +258 87 90 96 726</p>
                             </div>
                             <div class="kilimanjaro_single_contact_info">
                                 <h5>Email:</h5>
-                                <p>support@webblogoverflow.com <br> luckmoshy@gmail.com</p>
+                                <p>ailtonallen@ideiadinamicas.com <br> ailtonallen@gmail.com</p>
                             </div>
                         </div>
                         <div class="kilimanjaro_part">
-                            <h5>Latest Works</h5>
+                            <h5>Ultimos anúncios</h5>
                             <div class="kilimanjaro_works">
                                 <a class="kilimanjaro_works_img" href="img/gallery/1.jpg"><img src="img/gallery/1.jpg" alt=""></a>
                                 <a class="kilimanjaro_works_img" href="img/gallery/4.jpg"><img src="img/gallery/4.jpg" alt=""></a>
@@ -110,7 +105,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <p>© All Rights Reserved by <a href="#">Webublogoverflow.blogspot -(with all love)<i class="fa fa-love"></i></a></p>
+                        <p>© All Rights Reserved by <a href="#">Ailton Allen<i class="fa fa-love"></i></a></p>
                     </div>
                 </div>
             </div>

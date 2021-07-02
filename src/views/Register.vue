@@ -1,7 +1,7 @@
 <template>
   <div class="card bg-light">
     <article class="card-body mx-auto" style="max-width: 400px;">
-      <h4 class="card-title mt-3 text-center">Create Account</h4>
+      <h4 class="card-title mt-3 text-center">Criar uma Conta</h4>
       <p class="text-center">Get started with your free account</p>
       <p>
         <a href="" class="btn btn-block btn-twitter">
@@ -19,10 +19,21 @@
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-user"></i> </span>
           </div>
-          <input
+          <input v-model="maintenanceUsers.nome"
             name=""
             class="form-control"
             placeholder="Full name"
+            type="text"
+          />
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input v-model="maintenanceUsers.username"
+            name=""
+            class="form-control"
+            placeholder="Username"
             type="text"
           />
         </div>
@@ -33,7 +44,7 @@
               <i class="fa fa-envelope"></i>
             </span>
           </div>
-          <input
+          <input v-model="maintenanceUsers.email"
             name=""
             class="form-control"
             placeholder="Email address"
@@ -46,38 +57,24 @@
             <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
           </div>
           <select class="custom-select" style="max-width: 120px;">
-            <option selected="">+971</option>
-            <option value="1">+972</option>
-            <option value="2">+198</option>
-            <option value="3">+701</option>
+            <option selected="">+258</option>
+            <option value="1">+244</option>
+            <option value="2">+55</option>
+            <option value="3">+386</option>
           </select>
-          <input
+          <input v-model="maintenanceUsers.telefone"
             name=""
             class="form-control"
             placeholder="Phone number"
             type="text"
           />
         </div>
-        <!-- form-group// -->
-        <div class="form-group input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">
-              <i class="fa fa-building"></i>
-            </span>
-          </div>
-          <select class="form-control">
-            <option selected=""> Select job type</option>
-            <option>Designer</option>
-            <option>Manager</option>
-            <option>Accaunting</option>
-          </select>
-        </div>
         <!-- form-group end.// -->
         <div class="form-group input-group">
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
           </div>
-          <input
+          <input v-model="maintenanceUsers.password"
             class="form-control"
             placeholder="Create password"
             type="password"
@@ -88,7 +85,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
           </div>
-          <input
+          <input v-model="maintenanceUsers.passwordSame"
             class="form-control"
             placeholder="Repeat password"
             type="password"
@@ -96,7 +93,8 @@
         </div>
         <!-- form-group// -->
         <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block">
+          <button v-if="!maintenanceUsers.id"
+              @click="addUsers()" type="submit" class="btn btn-primary btn-block" >
             Create Account
           </button>
         </div>
@@ -109,7 +107,72 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: 'Register',
+
+  data () {
+    return {
+      maintenanceUsers: {
+        id: null,
+        nome: null,
+        username: null,
+        telefone: null,
+        email: null,
+        password: null,
+        passwordSame: null
+      },
+
+      users: [],
+
+      pagination: {
+        total: null,
+        pages: null,
+        page: 1,
+        limit: null
+      }
+    }
+  },
+  methods:{
+    getUsuarios() {
+      this.axios.get("http://localhost:3000/users").then((response) => {
+        this.users = response.data.data;
+      });
+    }, 
+    addUsers () {
+      let apiUsers = {
+        nome: this.maintenanceUsers.nome,
+        email: this.maintenanceUsers.email,
+        telefone: this.maintenanceUsers.telefone,
+        username: this.maintenanceUsers.username,
+        password: this.maintenanceUsers.password,
+        passwordSame:this.maintenanceUsers.password,
+      }
+
+      this.axios.post("http://localhost:3000/users",
+      apiUsers).then((response) => {
+        if (response.data.code === 201) {
+          this.getUsers()
+
+          this.resetMaintenanceUsers()
+        } else {
+          alert('Erro a criar usuario!')
+        }
+      })
+    },
+    resetMaintenanceUsers () {
+      this.maintenanceUsers = {
+        id: null,
+        nome: null,
+        username: '',
+        telefone: '',
+        email: null,
+        password: null
+      }
+    }
+  }
+};
+
+
 </script>
 
 <style>.divider-text {

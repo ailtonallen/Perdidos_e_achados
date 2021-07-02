@@ -12,32 +12,29 @@
         </div>
 
         <div class="filter-card">
-          <input type="text"
+          <input
+            type="text"
             class="search-input"
             placeholder="Encontre o seu perdido"
           />
 
-          <button @click="getUsuarios" class="search-button">Pesquisar</button>
+          <button @click="getUsuarios()" class="search-button">
+            Pesquisar
+          </button>
         </div>
         <div class="row">
-            <tr
-              v-if="!hasUsuarios">
-              <td
-                colspan="6">
-                Não existem usuarios criados!
-              </td>
-            </tr>
-     <div v-else>
-            <tr
+          <tr v-if="!hasUsuarios">
+            <td colspan="6">
+              Não existem usuarios criados!
+            </td>
+          </tr>
+
+          <div class="col-md-4" v-else>
+            <div
+              class="card bg-light"
               v-for="usuario in usuarios"
-              :key="usuario.id">
-              <td>{{ usuario.id }}</td>
-              <td>{{ usuario.nome }}</td>
-              <td>{{ usuario.telefone }}</td>
-            </tr>         
-</div>
-          <div class="col-md-4">
-            <div class="card bg-light">
+              :key="usuario.id"
+            >
               <img
                 class="card-img-top"
                 src="../assets/gato-persa-3.jpg"
@@ -46,213 +43,7 @@
               <div class="card-body">
                 <h5 class="card-title border-bottom pb-3">
                   {{ usuario.nome }}
-                  <a
-                    href="#"
-                    class="float-right btn btn-sm btn-info d-inline-flex share"
-                    ><i class="fas fa-share-alt"></i
-                  ></a>
-                </h5>
-                <p class="card-text">
-                  
-                </p>
-                <a href="#" class="btn btn-sm btn-info float-right"
-                  >Read more <i class="fas fa-angle-double-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card bg-light">
-              <img
-                class="card-img-top"
-                src="../assets/gato-persa-3.jpg"
-                alt="Card image cap"
-              />
-              <div class="card-body">
-                <h5 class="card-title border-bottom pb-3">
-                  
-                  <a
-                    href="#"
-                    class="float-right btn btn-sm btn-info d-inline-flex share"
-                    ><i class="fas fa-share-alt"></i
-                  ></a>
-                </h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-sm btn-info float-right"
-                  >Read more <i class="fas fa-angle-double-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card bg-light">
-              <img
-                class="card-img-top"
-                src="../assets/gato-persa-3.jpg"
-                alt="Card image cap"
-              />
-              <div class="card-body">
-                <h5 class="card-title border-bottom pb-3">
-                  Card title
-                  <a
-                    href="#"
-                    class="float-right btn btn-sm btn-info d-inline-flex share"
-                    ><i class="fas fa-share-alt"></i
-                  ></a>
-                </h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-sm btn-info float-right"
-                  >Read more <i class="fas fa-angle-double-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card bg-light">
-              <img
-                class="card-img-top"
-                src="../assets/gato-persa-3.jpg"
-                alt="Card image cap"
-              />
-              <div class="card-body">
-                <h5 class="card-title border-bottom pb-3">
-                  Card title
-                  <a
-                    href="#"
-                    class="float-right btn btn-sm btn-info d-inline-flex share"
-                    ><i class="fas fa-share-alt"></i
-                  ></a>
-                </h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-sm btn-info float-right"
-                  >Read more <i class="fas fa-angle-double-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card bg-light">
-              <img
-                class="card-img-top"
-                src="../assets/gato-persa-3.jpg"
-                alt="Card image cap"
-              />
-              <div class="card-body">
-                <h5 class="card-title border-bottom pb-3">
-                  Card title
-                  <a
-                    href="#"
-                    class="float-right btn btn-sm btn-info d-inline-flex share"
-                    ><i class="fas fa-share-alt"></i
-                  ></a>
-                </h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-sm btn-info float-right"
-                  >Read more <i class="fas fa-angle-double-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card bg-light">
-              <img
-                class="card-img-top"
-                src="../assets/gato-persa-3.jpg"
-                alt="Card image cap"
-              />
-              <div class="card-body">
-                <h5 class="card-title border-bottom pb-3">
-                  Card title
-                  <a
-                    href="#"
-                    class="float-right btn btn-sm btn-info d-inline-flex share"
-                    ><i class="fas fa-share-alt"></i
-                  ></a>
-                </h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-sm btn-info float-right"
-                  >Read more <i class="fas fa-angle-double-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card bg-light">
-              <img
-                class="card-img-top"
-                src="../assets/gato-persa-3.jpg"
-                alt="Card image cap"
-              />
-              <div class="card-body">
-                <h5 class="card-title border-bottom pb-3">
-                  Card title
-                  <a
-                    href="#"
-                    class="float-right btn btn-sm btn-info d-inline-flex share"
-                    ><i class="fas fa-share-alt"></i
-                  ></a>
-                </h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-sm btn-info float-right"
-                  >Read more <i class="fas fa-angle-double-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card bg-light">
-              <img
-                class="card-img-top"
-                src="../assets/gato-persa-3.jpg"
-                alt="Card image cap"
-              />
-              <div class="card-body">
-                <h5 class="card-title border-bottom pb-3">
-                  Card title
-                  <a
-                    href="#"
-                    class="float-right btn btn-sm btn-info d-inline-flex share"
-                    ><i class="fas fa-share-alt"></i
-                  ></a>
-                </h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-sm btn-info float-right"
-                  >Read more <i class="fas fa-angle-double-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card bg-light">
-              <img
-                class="card-img-top"
-                src="../assets/gato-persa-3.jpg"
-                alt="Card image cap"
-              />
-              <div class="card-body">
-                <h5 class="card-title border-bottom pb-3">
-                  Card title
+
                   <a
                     href="#"
                     class="float-right btn btn-sm btn-info d-inline-flex share"
@@ -286,9 +77,9 @@ export default {
   data() {
     return {
       usuarios: {
-        nome:"",
-        telefone:"",
-        username:""
+        nome: "",
+        telefone: "",
+        username: "",
       },
     };
   },
@@ -296,18 +87,17 @@ export default {
     hasUsuarios() {
       return this.usuarios.length > 0;
     },
-    
   },
   methods: {
     getUsuarios() {
-      this.axios.get('http://localhost:3000/users').then((response) => {
+      this.axios.get("http://localhost:3000/users").then((response) => {
         this.usuarios = response.data.data;
       });
-      },
+    },
   },
-  created () {
-      this.getUsuarios()
-  }
+  created() {
+    this.getUsuarios();
+  },
 };
 </script>
 

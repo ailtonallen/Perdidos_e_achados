@@ -38,7 +38,15 @@
 
 <script>
 export default {
-}
+    name: "Headers", 
+    
+    methods: {
+    login() {
+      
+      this.$router.push('/login');
+    },
+  },
+  }
 </script>
 
 <style>
