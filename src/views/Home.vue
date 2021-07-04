@@ -34,15 +34,15 @@
               class="card bg-light"
               v-for="usuario in usuarios"
               :key="usuario.id"
-            >
-              <img
+            > 
+              <img 
                 class="card-img-top"
                 src="../assets/gato-persa-3.jpg"
-                alt="Card image cap"
-              />
-              <div class="card-body">
+                alt="Card image cap" 
+              /><span class="badge">4</span>
+              <div class="card-body"> 
                 <h5 class="card-title border-bottom pb-3">
-                  {{ usuario.nome }}
+                  {{ usuario.nome }} 
 
                   <a
                     href="#"
@@ -54,7 +54,7 @@
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
-                <a href="#" class="btn btn-sm btn-info float-right"
+                <a @click="goToDetails(usuario.id)" class="btn btn-sm btn-info float-right"
                   >Read more <i class="fas fa-angle-double-right"></i
                 ></a>
               </div>
@@ -94,6 +94,9 @@ export default {
       this.axios.get("http://localhost:3000/users").then((response) => {
         this.usuarios = response.data.data;
       });
+    },
+    goToDetails (anuncioId) {
+      this.$router.push('/anuncios/' + anuncioId)
     },
   },
   created() {

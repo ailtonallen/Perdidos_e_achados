@@ -82,7 +82,7 @@
                             </div>
                             <div class="kilimanjaro_single_contact_info">
                                 <h5>Email:</h5>
-                                <p>ailtonallen@ideiadinamicas.com <br> ailtonallen@gmail.com</p>
+                                <p>ailtonallen@ideiasdinamicas.com <br> ailtonallen@gmail.com</p>
                             </div>
                         </div>
                         <div class="kilimanjaro_part">

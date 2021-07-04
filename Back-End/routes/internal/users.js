@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 
     const count = results[0]['COUNT(*)']
 
-    const _limit = Number(limit) || 20
+    const _limit = Number(limit) || 10
     const _page = Number(page) || 1
 
     const offset = (_page - 1) * _limit

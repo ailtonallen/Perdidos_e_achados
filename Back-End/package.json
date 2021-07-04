@@ -7,11 +7,12 @@
     "dev": "nodemon vue.js-E-commerce/"
   },
   "dependencies": {
+    "base64-img": "^1.0.4",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "indicative": "^7.4.4",
-    "cors": "^2.8.5",
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5"

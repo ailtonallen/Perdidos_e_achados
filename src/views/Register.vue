@@ -136,6 +136,7 @@ export default {
     getUsuarios() {
       this.axios.get("http://localhost:3000/users").then((response) => {
         this.users = response.data.data;
+        this.$router.push("/");
       });
     }, 
     addUsers () {

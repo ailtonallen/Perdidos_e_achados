@@ -1,15 +1,15 @@
 <template>
   <div class="container">
-    Página de detalhes de um todo
+    Página de detalhes de um anuncio
 
-    {{ JSON.stringify(todo) }}
+    {{ JSON.stringify(anuncio) }}
   </div>
 </template>
 <script>
 // import moment from 'moment'
 
 export default {
-  name: 'TodoDetails',
+  name: 'AnuncioDetails',
 
   components: {
   },
@@ -19,20 +19,20 @@ export default {
 
   data () {
     return {
-      todo: null
+      anuncio: null
     }
   },
 
   methods: {
-    getTodo () {
-      this.axios.get('https://gorest.co.in/public-api/todos/' + this.$route.params.todoId).then((response) => {
-        this.todo = response.data.data
+    getUsers () {
+      this.axios.get("http://localhost:3000/users/" + this.$route.params.anuncioId).then((response) => {
+        this.anuncio = response.data.data
       })
     }
   },
 
   created () {
-    this.getTodo()
+    this.getUsers()
   }
 }
 </script>

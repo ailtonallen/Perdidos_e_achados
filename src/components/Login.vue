@@ -29,13 +29,13 @@
         required=""
       />
 
-      <button class="btn btn-success btn-block" type="submit">
+      <button @click="getUsuarios()"  class="btn btn-success btn-block" type="submit">
         <i class="fas fa-sign-in-alt"></i> Sign in
       </button>
       <a href="#" id="forgot_pswd">Forgot password?</a>
       <hr />
       <!-- <p>Don't have an account!</p>  -->
-      <button @click="getUsuarios()" class="btn btn-primary btn-block" type="button" id="btn-signup">
+      <button class="btn btn-primary btn-block" type="button" id="btn-signup">
         <i class="fas fa-user-plus"></i> Sign up New Account
       </button>
     </form>
@@ -72,8 +72,13 @@ export default {
   },
   methods: {
     getUsuarios() {
-      this.axios.get("http://localhost:3000/users").then((response) => {
+      this.axios.post("http://localhost:3000/login",{
+      headers: {
+          Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNjI1MzY0MjYwfQ.ZyPpQGY6_1PGXVeDXoplj8Ttr4HWiaJIjjshjyVVKSI'
+          }
+        }).then((response) => {
         this.usuarios = response.data.data;
+        
       });
     },
   },
