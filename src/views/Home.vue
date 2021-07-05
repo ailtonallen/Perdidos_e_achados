@@ -39,7 +39,11 @@
                 class="card-img-top"
                 src="../assets/gato-persa-3.jpg"
                 alt="Card image cap" 
-              /><span class="badge">4</span>
+              /><div class="shape">
+					<div class="shape-text">
+						Perdido								
+					</div>
+				</div>
               <div class="card-body"> 
                 <h5 class="card-title border-bottom pb-3">
                   {{ usuario.nome }} 
@@ -77,11 +81,7 @@ export default {
   },
   data() {
     return {
-      usuarios: {
-        nome: "",
-        telefone: "",
-        username: "",
-      },
+      usuarios: []
     };
   },
   computed: {
@@ -221,101 +221,19 @@ section .filter-card {
   padding-bottom: 20px;
 }
 
-/*  sobre  */
-.sobre {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 50px 10px;
+
+.shape {
+	border-color: rgba(255,255,255,0) #d9534f rgba(255,255,255,0) rgba(255,255,255,0);
+	border-color: transparent #999999 transparent transparent;
 }
-.sobre-content {
-  max-width: 1000px;
-  min-width: 300px;
-  height: 600px;
-  background: #dedede3b;
-  margin: 0 auto;
-  border-radius: 8px;
-  z-index: 10px;
-  padding: 10px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-.left {
-  width: 25%;
-  min-width: 300px;
-  height: 100%;
-  border-radius: 8px;
-  background: #000000a1;
-}
-.right {
-  width: 65%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding-top: 10%;
-}
-.right h3 {
-  text-align: right;
-  width: 90%;
-  margin-bottom: 20px;
-}
-.right p {
-  max-width: 90%;
-  font-size: 1em;
-  letter-spacing: 2px;
-  text-align: right;
-  color: rgba(0, 0, 0, 0.4);
-}
-/* Recursos */
-.recurso {
-  width: 100%;
-  height: 100%;
-  background: var(--gray);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 50px 0;
-}
-.title-wrapper-recurso {
-  padding: 20px 0px;
-}
-.recurso-card-block {
-  max-width: 1000px;
-  min-width: 300px;
-  height: 250px;
-  background: white;
-  margin: 0 auto;
-  border-radius: 8px;
-  z-index: 10px;
-  padding: 50px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
-  grid-gap: 30px;
-}
-.recurso-card-item {
-  max-width: 420px;
-  height: 150px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  border: 1px solid #dedede3b;
-  border-radius: 4px;
-}
-.recurso-text-content {
-  max-width: 60%;
-  margin: 5px;
-}
-.recurso-card-item img {
-  width: 64px;
-  height: 64px;
-}
+.shape-text{
+	color:black; font-size:12px; font-weight:bold; position:relative; right:-245px; bottom:105px; white-space: nowrap;
+	-ms-transform:rotate(30deg); /* IE 9 */
+	-o-transform: rotate(360deg);  /* Opera 10.5 */
+	-webkit-transform:rotate(30deg); /* Safari and Chrome */
+	transform:rotate(30deg);
+}	
+
 /* Ajustes responssivo */
 @media (max-width: 576px) {
   nav ul li {

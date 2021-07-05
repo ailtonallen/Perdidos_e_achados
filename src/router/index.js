@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../components/Login.vue'
 import Perdidos from '../views/Perdidos.vue'
+import CriarAnuncio from '../views/CriarAnuncio'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,12 @@ const routes = [
     path: '/perdidos',
     name: 'Perdidos',
     component: Perdidos
+    
+  },
+  {
+    path: '/criaranuncio',
+    name: 'CriarAnuncio',
+    component: CriarAnuncio
     
   },
   {
