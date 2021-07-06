@@ -1,6 +1,6 @@
 <template>
   <div id="logreg-forms">
-    <form class="form-signin">
+    <div class="form-signin">
       <h1 class="h3 mb-3 font-weight-normal" style="text-align: center">
         Sign in
       </h1>
@@ -13,7 +13,7 @@
         </button>
       </div>
       <p style="text-align:center">OR</p>
-      <input v-model="usuarios.username"
+      <input v-model="user.username"
         type="email"
         id="inputEmail"
         class="form-control"
@@ -21,7 +21,7 @@
         required=""
         autofocus=""
       />
-      <input v-model="usuarios.password"
+      <input v-model="user.password"
         type="password"
         id="inputPassword"
         class="form-control"
@@ -29,7 +29,7 @@
         required=""
       />
 
-      <button @click="getUsuarios()"  class="btn btn-success btn-block" type="submit">
+      <button @click="login()"  class="btn btn-success btn-block" >
         <i class="fas fa-sign-in-alt"></i> Sign in
       </button>
       <a href="#" id="forgot_pswd">Forgot password?</a>
@@ -38,7 +38,7 @@
       <button class="btn btn-primary btn-block" type="button" id="btn-signup">
         <i class="fas fa-user-plus"></i> Sign up New Account
       </button>
-    </form>
+    </div>
 
     <form action="/reset/password/" class="form-reset">
       <input
@@ -64,23 +64,25 @@ export default {
   name: "Login",
   data() {
     return {
-      usuarios: {
+      user: {
         username: "",
         password: "",
       },
     };
-  },
+  }, 
   methods: {
-    getUsuarios() {
-      this.axios.post("http://localhost:3000/login",{
-      headers: {
-          Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNjI1MzY0MjYwfQ.ZyPpQGY6_1PGXVeDXoplj8Ttr4HWiaJIjjshjyVVKSI'
-          }
-        }).then((response) => {
-        this.usuarios = response.data.data;
-        
+    login() {
+      this.axios.post("http://localhost:3000/login", this.user).then((response) => {
+        /* eslint-disable no-debugger */ debugger
+        localStorage.setItem('token', response.data.token)
+        localStorage.setItem('user', JSON.stringify(response.data.user))
+        this.$router.push('/')
       });
     },
+    logout(){
+      localStorage.removeItem('user')
+     localStorage.removeItem('token')
+    }
   },
 };
 </script>

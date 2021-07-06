@@ -60,7 +60,6 @@ router.post('/', (req, res) => {
 
   validate(anuncio, {
     descricao: 'required',
-    telefone:'required|integer',
     data:'required|date',
     localizacao_id:'required|integer',
     categoria_id: 'required|integer',

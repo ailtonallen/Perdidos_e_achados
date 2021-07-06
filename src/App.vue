@@ -15,8 +15,19 @@ export default {
 
   components: {
     Footer
+  },
+
+  mounted () {
+    var token = localStorage.getItem('token')
+    if (token)
+    {
+      this.$router.push('/')    
+    } else {
+  	  this.$router.push('/login')
+    }
   }
 }
+
 </script>
 
 <style>

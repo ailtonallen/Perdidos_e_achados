@@ -57,7 +57,7 @@
               <div class="form-group col-md-6">
                 Local do sucessido: <br>
                 <select
-                  v-model="maintenanceAnuncios.localizacao"
+                  v-model="maintenanceAnuncios.localizacao_id"
                   class="custom-select"
                   style="max-width: 400px;"
                 >
@@ -85,12 +85,7 @@
                   v-model="maintenanceAnuncios.status_id"
                   style="max-width: 400px;"
                 >
-                  <option  
-                    v-for="status in statuses" 
-                    :key="status.id" 
-                    :value="status.id" selected>
-                    {{ status.descricao }}
-                  </option>
+                  <option selected>{{ statuses.descricao }}</option>
                 </select>
               </div>
             </div>
@@ -103,7 +98,7 @@
                   style="max-width: 400px;"
                   v-model="maintenanceAnuncios.tipo_id"
                 >
-                  <option selected>{{tipos.descricao }}</option>
+                  <option selected>{{ tipos.descricao }}</option>
                 </select>
               </div>
               <br />
@@ -166,41 +161,38 @@ export default {
   name: "CriarAnuncio",
   data() {
     return {
-    maintenanceAnuncios: {
+      maintenanceAnuncios: {
         id: null,
         titulo: null,
         descricao: null,
         recompensa: null,
         data: null,
         localizacao_id: null,
-        tipo_id: null,
         categoria_id: null,
         status_id: null,
+        tipo_id: null,
       },
-
       locais: [],
-      statuses: [],
-      tipos: [],
       categorias: [],
-
+      tipos: [],
+      statuses: [],
     }
   },
+
   methods: {
     getLocalizacao() {
       this.axios.get("http://localhost:3000/localizacao").then((response) => {
-      
-        this.locais = response.data;
+        this.locais = response.data[0];
       });
     },
     getCategoria() {
       this.axios.get("http://localhost:3000/categoria").then((response) => {
-        this.categorias = response.data;
+        this.categorias = response.data[0];
       });
     },
     getStatus() {
       this.axios.get("http://localhost:3000/status").then((response) => {
-        /* eslint-disable no-debugger */ debugger
-      this.statuses = response.data;
+        this.statuses = response.data[0];
       });
     },
     getTipo() {
@@ -219,7 +211,7 @@ export default {
         categoria: this.maintenanceAnuncios.categoria_id,
         status: this.maintenanceAnuncios.status_id,
         tipo: this.maintenanceAnuncios.tipo_id,
-      }
+      };
 
       this.axios
         .post("http://localhost:3000/anuncio", apiAnuncios)
@@ -238,10 +230,10 @@ export default {
         descricao: null,
         recompensa: null,
         data: null,
-        localizacao_id: null,
-        categoria_id: null,
-        status_id: null,
-        tipo_id: null,
+        localizacao: null,
+        categoria: null,
+        status: null,
+        tipo: null,
       };
     },
   },
