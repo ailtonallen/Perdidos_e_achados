@@ -4,36 +4,37 @@ const { validate } = require('indicative/validator')
 const db = require('../../db')
 
 router.get('/', (req, res) => {
-  const { limit, page } = req.query
+  const { page, limit } = req.query
 
-  const _limit = +limit || 20
-  const _page = +page || 1
-
-  db.query('SELECT COUNT(id) FROM anuncio', (error, countResults, _) => {
+  db.query('SELECT COUNT(*) FROM anuncio', (error, results) => {
     if (error) {
       throw error
     }
 
-    const offset = (_page - 1) * _limit
-    const total = countResults[0]['COUNT(id)']
-    const pageCount = Math.ceil(total / _limit)
+    const count = results[0]['COUNT(*)']
 
-    db.query('SELECT * FROM anuncio LIMIT ?, ?', [offset, _limit], (error, results, _) => {
+    const _limit = Number(limit) || 10
+    const _page = Number(page) || 1
+
+    const offset = (_page - 1) * _limit
+
+    db.query('SELECT an.id, an.titulo, an.descricao, an.recompensa, an.data, an.tipo_id, users.nome AS nome, users.telefone AS telefone, tipo.descricao AS tipo FROM anuncio AS an INNER JOIN tipo ON (an.tipo_id = tipo.id) INNER JOIN users LIMIT ?, ?', [offset, _limit], (error, results, _) => {
       if (error) {
         throw error
       }
+
+      const pages = Math.ceil(count / _limit)
 
       res.send({
         code: 200,
         meta: {
           pagination: {
-            total: total,
-            pages: pageCount,
+            total: count,
+            pages: pages,
             page: _page,
-            limit: _limit
           }
         },
-        data: results
+        data: results,
       })
     })
   })
@@ -55,6 +56,17 @@ router.get('/:id', (req, res) => {
   })
 })
 
+router.get('/:user_id', (req, res) => {
+  const { user_id } = req.params
+  db.query(`SELECT * FROM anuncio WHERE user_id = ${user_id}`, (error, results) => {
+    if (error) {
+      throw error
+    }
+
+    res.send(results)
+})
+})
+
 router.post('/', (req, res) => {
   const anuncio = req.body
 
@@ -65,7 +77,7 @@ router.post('/', (req, res) => {
     categoria_id: 'required|integer',
     status_id: 'required|integer',
     tipo_id:'required|integer',
-    user_id: 'required|integer',
+    
     
   }).then((value) => {
     db.query('INSERT INTO anuncio SET ?', [value], (error, results, _) => {

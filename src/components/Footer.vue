@@ -46,31 +46,17 @@
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="kilimanjaro_part">
                             <h5>Ultimos anúncios</h5>
-                            <div class="kilimanjaro_blog_area">
-                                <div class="kilimanjaro_thumb">
-								<img class="img-fluid" src="https://3.bp.blogspot.com/--C1wpaf_S4M/W7V__10nRoI/AAAAAAAAK24/1NSfapuYSIY0f0wzXY9NgoH0FjQLT07YACKgBGAs/s1600/maxresdefault.jpg" alt="">
-
-                                </div>
-                                <a href="#">Your Blog Title Goes Here</a>
-                                <p class="kilimanjaro_date">21 Jan 2018</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                            </div>
-                            <div class="kilimanjaro_blog_area">
+                            <div v-for="ultimo in ultimos"
+              :key="ultimo.id" class="kilimanjaro_blog_area">
                                 <div class="kilimanjaro_thumb">
 								<img class="img-fluid" src="https://3.bp.blogspot.com/--C1wpaf_S4M/W7V__10nRoI/AAAAAAAAK24/1NSfapuYSIY0f0wzXY9NgoH0FjQLT07YACKgBGAs/s1600/maxresdefault.jpg" alt="">
                                 </div>
-                                <a href="#">Your Blog Title Goes Here</a>
-                                <p class="kilimanjaro_date">21 Jan 2018</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                <a href="#">{{ultimo.titulo}}</a>
+                                <p class="kilimanjaro_date">{{ultimo.data}}</p>
+                                <p>{{ultimo.descricao}}</p>
                             </div>
-                            <div class="kilimanjaro_blog_area">
-                                <div class="kilimanjaro_thumb">
-								<img class="img-fluid" src="https://3.bp.blogspot.com/--C1wpaf_S4M/W7V__10nRoI/AAAAAAAAK24/1NSfapuYSIY0f0wzXY9NgoH0FjQLT07YACKgBGAs/s1600/maxresdefault.jpg" alt="">
-                                </div>
-                                <a href="#">Your Blog Title Goes Here</a>
-                                <p class="kilimanjaro_date">21 Jan 2018</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                            </div>
+                            
+                            
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-3">
@@ -115,6 +101,24 @@
 
 <script>
 export default {
+name: "Footer",
+data() {
+    return {
+      ultimos: null,
+      
+
+    };
+  },
+methods: {
+    getUltimos(){
+      this.axios.get("http://localhost:3000/ultimos").then((response)=>{
+      this.ultimos = response.data;
+    });
+    },
+},
+created() {
+    this.getUltimos();
+}
 }
 </script>
 

@@ -37,7 +37,7 @@
                 Recompensa:
                 <input
                   v-model="maintenanceAnuncios.recompensa"
-                  type="email"
+                  type="number"
                   class="form-control"
                   id="inputEmail4"
                   placeholder="Recompensa"
@@ -55,17 +55,37 @@
                 />
               </div>
               <div class="form-group col-md-6">
-                Local do sucessido: <br>
+                Local do sucessido: <br />
+                   <input
+                  v-model="maintenanceAnuncios.local_sucedido"
+                  id="Full Name"
+                  name="Full Name"
+                  placeholder="Local do sucedido"
+                  class="form-control"
+                  type="text"
+                />                  
+                
+              </div>
+              
+              <div class="form-group col-md-6">
+                Cidade <br />
                 <select
-                  v-model="maintenanceAnuncios.localizacao"
+                  v-model="maintenanceAnuncios.localizacao_id"
                   class="custom-select"
                   style="max-width: 400px;"
                 >
                   <option selected disabled>Escolha...</option>
-                  <option>{{ locais.cidade }}</option>
+                  <option
+                    v-for="localizacao in locais"
+                    :key="localizacao.id"
+                    :value="localizacao.id"
+                    selected
+                  >
+                    {{ localizacao.cidade }}
+                  </option>
                 </select>
               </div>
-              <br />
+              
               <div class="form-group col-md-6">
                 Categoria: <br />
                 <select
@@ -74,10 +94,17 @@
                   style="max-width: 400px;"
                 >
                   <option selected disabled>Escolha...</option>
-                  <option>{{ categorias.descricao }}</option>
+                  <option
+                    v-for="categoria in categorias"
+                    :key="categoria.id"
+                    :value="categoria.id"
+                    selected
+                  >
+                    {{ categoria.descricao }}
+                  </option>
                 </select>
               </div>
-              <br />
+              
               <div class="form-group col-md-6">
                 Seleciona o estado do anuncio: <br />
                 <select
@@ -85,16 +112,18 @@
                   v-model="maintenanceAnuncios.status_id"
                   style="max-width: 400px;"
                 >
-                  <option  
-                    v-for="status in statuses" 
-                    :key="status.id" 
-                    :value="status.id" selected>
+                  <option
+                    v-for="status in statuses"
+                    :key="status.id"
+                    :value="status.id"
+                    selected
+                  >
                     {{ status.descricao }}
                   </option>
                 </select>
               </div>
             </div>
-            <br />
+            
             <div class="form-row">
               <div class="form-group col-md-6">
                 Escolha o tipo de anuncio: <br />
@@ -103,7 +132,15 @@
                   style="max-width: 400px;"
                   v-model="maintenanceAnuncios.tipo_id"
                 >
-                  <option selected>{{tipos.descricao }}</option>
+                  <option selected disabled>Escolha...</option>
+                  <option
+                    v-for="tipo in tipos"
+                    :key="tipo.id"
+                    :value="tipo.id"
+                    selected
+                  >
+                    {{ tipo.descricao }}
+                  </option>
                 </select>
               </div>
               <br />
@@ -166,7 +203,7 @@ export default {
   name: "CriarAnuncio",
   data() {
     return {
-    maintenanceAnuncios: {
+      maintenanceAnuncios: {
         id: null,
         titulo: null,
         descricao: null,
@@ -176,19 +213,20 @@ export default {
         tipo_id: null,
         categoria_id: null,
         status_id: null,
+        local_sucedido: null,
+        contacto: null
       },
 
       locais: [],
       statuses: [],
       tipos: [],
       categorias: [],
-
-    }
+      users: [],
+    };
   },
   methods: {
     getLocalizacao() {
       this.axios.get("http://localhost:3000/localizacao").then((response) => {
-      
         this.locais = response.data;
       });
     },
@@ -199,32 +237,43 @@ export default {
     },
     getStatus() {
       this.axios.get("http://localhost:3000/status").then((response) => {
-        /* eslint-disable no-debugger */ debugger
-      this.statuses = response.data;
+        this.statuses = response.data;
       });
     },
     getTipo() {
       this.axios.get("http://localhost:3000/tipo").then((response) => {
-        this.tipos = response.data[0];
+        this.tipos = response.data;
       });
     },
+    
 
     addAnuncios() {
+      let loggedUser = localStorage.getItem("user");
+      if (loggedUser) {
+        loggedUser = JSON.parse(loggedUser);
+      }
+
+      console.log(loggedUser)
+
       let apiAnuncios = {
         titulo: this.maintenanceAnuncios.titulo,
         descricao: this.maintenanceAnuncios.descricao,
         recompensa: this.maintenanceAnuncios.recompensa,
         data: this.maintenanceAnuncios.data,
-        localizacao: this.maintenanceAnuncios.localizacao_id,
-        categoria: this.maintenanceAnuncios.categoria_id,
-        status: this.maintenanceAnuncios.status_id,
-        tipo: this.maintenanceAnuncios.tipo_id,
-      }
+        localizacao_id: this.maintenanceAnuncios.localizacao_id,
+        categoria_id: this.maintenanceAnuncios.categoria_id,
+        status_id: this.maintenanceAnuncios.status_id,
+        tipo_id: this.maintenanceAnuncios.tipo_id,
+        user_id: loggedUser.id,
+        contacto: this.maintenanceAnuncios.contacto,
+        local_sucedido: this.maintenanceAnuncios.local_sucedido
+      };
 
       this.axios
         .post("http://localhost:3000/anuncio", apiAnuncios)
         .then((response) => {
-          if (response.data.code === 201) {
+          if (response.data.code === 200) {
+            alert("Anuncio criado com sucesso!");
             this.resetMaintenanceAnuncios();
           } else {
             alert("Erro a criar anuncio!");
@@ -250,7 +299,7 @@ export default {
     this.getStatus();
     this.getTipo();
     this.getLocalizacao();
-  },
+},
 };
 </script>
 

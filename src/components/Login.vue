@@ -17,7 +17,7 @@
         type="email"
         id="inputEmail"
         class="form-control"
-        placeholder="Email address"
+        placeholder="Nome do usuário"
         required=""
         autofocus=""
       />
@@ -73,16 +73,12 @@ export default {
   methods: {
     login() {
       this.axios.post("http://localhost:3000/login", this.user).then((response) => {
-        /* eslint-disable no-debugger */ debugger
+        
         localStorage.setItem('token', response.data.token)
         localStorage.setItem('user', JSON.stringify(response.data.user))
         this.$router.push('/')
       });
     },
-    logout(){
-      localStorage.removeItem('user')
-     localStorage.removeItem('token')
-    }
   },
 };
 </script>

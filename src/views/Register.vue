@@ -151,9 +151,8 @@ export default {
 
       this.axios.post("http://localhost:3000/users",
       apiUsers).then((response) => {
-        if (response.data.code === 201) {
-          this.getUsers()
-
+        if (response.data.code === 200) {
+        alert('Sucesso ao criar usuario!')
           this.resetMaintenanceUsers()
         } else {
           alert('Erro a criar usuario!')

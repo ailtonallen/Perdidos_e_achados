@@ -18,22 +18,22 @@
             placeholder="Encontre o seu perdido"
           />
 
-          <button @click="getUsuarios()" class="search-button">
+          <button @click="getAnuncios()" class="search-button">
             Pesquisar
           </button>
         </div>
         <div class="row">
-          <tr v-if="!hasUsuarios">
+          <tr v-if="!hasAnuncios">
             <td colspan="6">
-              Não existem usuarios criados!
+              Não existem anuncios criados!
             </td>
           </tr>
 
           <div class="col-md-4" v-else>
             <div
               class="card bg-light"
-              v-for="usuario in usuarios"
-              :key="usuario.id"
+              v-for="anuncio in anuncios"
+              :key="anuncio.id"
             > 
               <img 
                 class="card-img-top"
@@ -41,12 +41,12 @@
                 alt="Card image cap" 
               /><div class="shape">
 					<div class="shape-text">
-						Perdido								
+						{{ anuncio.tipo }}								
 					</div>
 				</div>
               <div class="card-body"> 
                 <h5 class="card-title border-bottom pb-3">
-                  {{ usuario.nome }} 
+                  {{ anuncio.titulo }} 
 
                   <a
                     href="#"
@@ -55,10 +55,10 @@
                   ></a>
                 </h5>
                 <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  {{ anuncio.descricao }}
+                  
                 </p>
-                <a @click="goToDetails(usuario.id)" class="btn btn-sm btn-info float-right"
+                <a @click="goToDetails(anuncio.id)" class="btn btn-sm btn-info float-right"
                   >Read more <i class="fas fa-angle-double-right"></i
                 ></a>
               </div>
@@ -81,26 +81,33 @@ export default {
   },
   data() {
     return {
-      usuarios: []
+      anuncios: []
     };
   },
   computed: {
-    hasUsuarios() {
-      return this.usuarios.length > 0;
+    hasAnuncios() {
+      return this.anuncios.length > 0;
     },
   },
   methods: {
-    getUsuarios() {
-      this.axios.get("http://localhost:3000/users").then((response) => {
-        this.usuarios = response.data.data;
+    getAnuncios() {
+      
+      
+      this.axios.get("http://localhost:3000/anuncios").then((response) => {
+        this.anuncios = response.data;
+        
       });
     },
-    goToDetails (anuncioId) {
-      this.$router.push('/anuncios/' + anuncioId)
+    goToDetails () {
+      let loggedUser = localStorage.getItem("user");
+      if (loggedUser) {
+        loggedUser = JSON.parse(loggedUser);
+      }
+      this.$router.push('/anuncios/user_id/' == loggedUser.id)
     },
   },
   created() {
-    this.getUsuarios();
+    this.getAnuncios();
   },
 };
 </script>

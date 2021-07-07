@@ -1,35 +1,28 @@
 <template>
   <div>
-    
-    <router-view/>
+    <router-view />
     <Footer />
   </div>
 </template>
 
 <script>
-
-import Footer from '@/components/Footer'
+import Footer from "@/components/Footer";
 
 export default {
-  name: 'App',
+  name: "App",
 
   components: {
-    Footer
+    Footer,
   },
 
-  mounted () {
-    var token = localStorage.getItem('token')
-    if (token)
-    {
-      this.$router.push('/')    
-    } else {
-  	  this.$router.push('/login')
+  mounted() {
+    var token = localStorage.getItem("token");
+    
+    if (!token) {
+      this.$router.push("/");
     }
-  }
-}
-
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

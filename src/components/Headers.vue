@@ -44,11 +44,22 @@ export default {
   name: "Headers",
 
   methods: {
-    async logout (){
-        await this.$store.dispatch('LogOut')
+        logout(){
+      localStorage.removeItem('user')
+     localStorage.removeItem('token')
         this.$router.push('/login')
       }
   },
+  computed:{
+    isLoggedIn(){
+      if (localStorage.getItem('token')){
+        return true
+      }else {
+        return false
+      }
+      
+    }
+  }
 };
 </script>
 

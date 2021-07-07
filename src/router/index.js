@@ -3,7 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../components/Login.vue'
 import Perdidos from '../views/Perdidos.vue'
-import CriarAnuncio from '../views/CriarAnuncio'
+import CriarAnuncio from '../views/CriarAnuncio.vue'
+import Dashboard from '../views/Dashboard.vue'
 
 Vue.use(VueRouter)
 
@@ -26,6 +27,14 @@ const routes = [
     component: Perdidos
     
   },
+
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard
+    
+  },
+
   {
     path: '/criaranuncio',
     name: 'CriarAnuncio',
