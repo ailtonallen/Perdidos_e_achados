@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    
+    <Header />
     <div class="row">
       <aside class="col-sm-5 border-right">
         <article class="gallery-wrap">
@@ -48,6 +48,14 @@
               </p>
             </dd>
           </dl>
+          <dl class="item-property">
+            <dt>Data:</dt>
+            <dd>
+              <p>
+              {{formatDate(anuncio.data)}}
+              </p>
+            </dd>
+          </dl>
           <!-- item-property-hor .// -->
           <dl class="param param-feature">
             <dt>Contacto:</dt>
@@ -56,7 +64,7 @@
           <!-- item-property-hor .// -->
           <dl class="param param-feature">
             <dt>Local</dt>
-            <dd>{{anuncio.cidade}}</dd>
+            <dd>{{anuncio.local_sucedido}}</dd>
           </dl>
           <!-- item-property-hor .// -->
 <!-- row.// -->
@@ -71,12 +79,15 @@
   <!-- card.// -->
 </template>
 <script>
-// import moment from 'moment'
+import moment from 'moment'
 
+import Header from '@/components/Headers'
 export default {
   name: "AnuncioDetails",
 
-  components: {},
+  components: {
+    Header
+  },
 
   computed: {},
 
@@ -95,6 +106,11 @@ export default {
         .then((response) => {
           this.anuncio = response.data.data;
         });
+    },
+    formatDate (date) {
+      var splitedDate = date.split('.')[0]
+
+      return moment(splitedDate, 'YYYY-MM-DDTHH:mm:ss').format('DD/MM/YYYY HH:mm:ss')
     },
     getLocal() {
       this.axios

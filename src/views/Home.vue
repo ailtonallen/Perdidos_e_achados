@@ -29,24 +29,26 @@
             </td>
           </tr>
 
-          <div class="col-md-4" v-else>
-            <div
-              class="card bg-light"
-              v-for="anuncio in anuncios"
-              :key="anuncio.id"
-            > 
-              <img 
+          <div
+            class="col-md-4"
+            v-else
+            v-for="anuncio in anuncios"
+            :key="anuncio.id"
+          >
+            <div class="card bg-light">
+              <img
                 class="card-img-top"
                 src="../assets/gato-persa-3.jpg"
-                alt="Card image cap" 
-              /><div class="shape">
-					<div class="shape-text">
-						{{ anuncio.tipo }}								
-					</div>
-				</div>
-              <div class="card-body"> 
+                alt="Card image cap"
+              />
+              <div class="shape">
+                <div class="shape-text">
+                  {{ anuncio.tipo }}
+                </div>
+              </div>
+              <div class="card-body">
                 <h5 class="card-title border-bottom pb-3">
-                  {{ anuncio.titulo }} 
+                  {{ anuncio.titulo }}
 
                   <a
                     href="#"
@@ -56,15 +58,15 @@
                 </h5>
                 <p class="card-text">
                   {{ anuncio.descricao }}
-                  
                 </p>
-                <a @click="goToDetails(anuncio.id)" class="btn btn-sm btn-info float-right"
+                <a
+                  @click="goToDetails(anuncio.id)"
+                  class="btn btn-sm btn-info float-right"
                   >Read more <i class="fas fa-angle-double-right"></i
                 ></a>
               </div>
             </div>
           </div>
-          
         </div>
       </div>
     </section>
@@ -81,7 +83,7 @@ export default {
   },
   data() {
     return {
-      anuncios: []
+      anuncios: [],
     };
   },
   computed: {
@@ -91,19 +93,12 @@ export default {
   },
   methods: {
     getAnuncios() {
-      
-      
       this.axios.get("http://localhost:3000/anuncios").then((response) => {
         this.anuncios = response.data;
-        
       });
     },
-    goToDetails () {
-      let loggedUser = localStorage.getItem("user");
-      if (loggedUser) {
-        loggedUser = JSON.parse(loggedUser);
-      }
-      this.$router.push('/anuncios/user_id/' == loggedUser.id)
+    goToDetails(anuncioId) {
+      this.$router.push("/anuncios/" + anuncioId);
     },
   },
   created() {
@@ -228,18 +223,24 @@ section .filter-card {
   padding-bottom: 20px;
 }
 
-
 .shape {
-	border-color: rgba(255,255,255,0) #d9534f rgba(255,255,255,0) rgba(255,255,255,0);
-	border-color: transparent #999999 transparent transparent;
+  border-color: rgba(255, 255, 255, 0) #d9534f rgba(255, 255, 255, 0)
+    rgba(255, 255, 255, 0);
+  border-color: transparent #999999 transparent transparent;
 }
-.shape-text{
-	color:black; font-size:12px; font-weight:bold; position:relative; right:-245px; bottom:105px; white-space: nowrap;
-	-ms-transform:rotate(30deg); /* IE 9 */
-	-o-transform: rotate(360deg);  /* Opera 10.5 */
-	-webkit-transform:rotate(30deg); /* Safari and Chrome */
-	transform:rotate(30deg);
-}	
+.shape-text {
+  color: black;
+  font-size: 12px;
+  font-weight: bold;
+  position: relative;
+  right: -245px;
+  bottom: 105px;
+  white-space: nowrap;
+  -ms-transform: rotate(30deg); /* IE 9 */
+  -o-transform: rotate(360deg); /* Opera 10.5 */
+  -webkit-transform: rotate(30deg); /* Safari and Chrome */
+  transform: rotate(30deg);
+}
 
 /* Ajustes responssivo */
 @media (max-width: 576px) {

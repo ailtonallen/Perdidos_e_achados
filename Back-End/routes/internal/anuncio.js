@@ -56,9 +56,9 @@ router.get('/:id', (req, res) => {
   })
 })
 
-router.get('/:user_id', (req, res) => {
-  const { user_id } = req.params
-  db.query(`SELECT * FROM anuncio WHERE user_id = ${user_id}`, (error, results) => {
+router.get('/:id', (req, res) => {
+  const { id } = req.params
+  db.query(`SELECT * FROM anuncio WHERE id = ${id}`, (error, results) => {
     if (error) {
       throw error
     }
@@ -71,6 +71,7 @@ router.post('/', (req, res) => {
   const anuncio = req.body
 
   validate(anuncio, {
+    titulo: 'required',
     descricao: 'required',
     data:'required|date',
     localizacao_id:'required|integer',

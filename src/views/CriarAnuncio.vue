@@ -1,5 +1,6 @@
 <template>
   <section class="testimonial py-5" id="testimonial">
+    <Header />
     <div class="container">
       <div class="row ">
         <div class="col-md-4 py-5 bg-primary text-white text-center ">
@@ -11,10 +12,14 @@
               />
               <h2 class="py-3">Criar um anuncio</h2>
               <p>
-                Tation argumentum et usu, dicit viderer evertitur te has. Eu
-                dictas concludaturque usu, facete detracto patrioque an per,
-                lucilius pertinacia eu vel.
+                Encontrou ou perdeu um objeto ou documento? Caso encontre
+                ou perca algum documento ou pertence, orientamos
+                que se dirija aos Correios e entregue diretamente
+                para um colaborador. Todos os achados são encaminhados para a
+                nossa Central de Atendimento, onde seguimos com as devidas
+                tratativas.
               </p>
+              <p></p>
             </div>
           </div>
         </div>
@@ -44,6 +49,16 @@
                 />
               </div>
               <div class="form-group col-md-6">
+                Contacto:
+                <input
+                  v-model="maintenanceAnuncios.telefones"
+                  type="number"
+                  class="form-control"
+                  id="inputEmail4"
+                  placeholder="Número de celular"
+                />
+              </div>
+              <div class="form-group col-md-6">
                 Data em que ocorreu:
                 <input
                   v-model="maintenanceAnuncios.data"
@@ -55,18 +70,17 @@
                 />
               </div>
               <div class="form-group col-md-6">
-                Local do sucessido: <br />
-                   <input
+                Local do sucedido: <br />
+                <input
                   v-model="maintenanceAnuncios.local_sucedido"
                   id="Full Name"
                   name="Full Name"
                   placeholder="Local do sucedido"
                   class="form-control"
                   type="text"
-                />                  
-                
+                />
               </div>
-              
+
               <div class="form-group col-md-6">
                 Cidade <br />
                 <select
@@ -85,7 +99,7 @@
                   </option>
                 </select>
               </div>
-              
+
               <div class="form-group col-md-6">
                 Categoria: <br />
                 <select
@@ -104,7 +118,7 @@
                   </option>
                 </select>
               </div>
-              
+
               <div class="form-group col-md-6">
                 Seleciona o estado do anuncio: <br />
                 <select
@@ -123,7 +137,7 @@
                 </select>
               </div>
             </div>
-            
+
             <div class="form-row">
               <div class="form-group col-md-6">
                 Escolha o tipo de anuncio: <br />
@@ -199,8 +213,13 @@
 </template>
 
 <script>
+import Header from '@/components/Headers'
 export default {
   name: "CriarAnuncio",
+  components: {
+    Header,
+  },
+
   data() {
     return {
       maintenanceAnuncios: {
@@ -214,7 +233,7 @@ export default {
         categoria_id: null,
         status_id: null,
         local_sucedido: null,
-        contacto: null
+        telefones: null,
       },
 
       locais: [],
@@ -245,7 +264,6 @@ export default {
         this.tipos = response.data;
       });
     },
-    
 
     addAnuncios() {
       let loggedUser = localStorage.getItem("user");
@@ -253,7 +271,7 @@ export default {
         loggedUser = JSON.parse(loggedUser);
       }
 
-      console.log(loggedUser)
+      console.log(loggedUser);
 
       let apiAnuncios = {
         titulo: this.maintenanceAnuncios.titulo,
@@ -265,8 +283,8 @@ export default {
         status_id: this.maintenanceAnuncios.status_id,
         tipo_id: this.maintenanceAnuncios.tipo_id,
         user_id: loggedUser.id,
-        contacto: this.maintenanceAnuncios.contacto,
-        local_sucedido: this.maintenanceAnuncios.local_sucedido
+        telefones: this.maintenanceAnuncios.telefones,
+        local_sucedido: this.maintenanceAnuncios.local_sucedido,
       };
 
       this.axios
@@ -299,7 +317,7 @@ export default {
     this.getStatus();
     this.getTipo();
     this.getLocalizacao();
-},
+  },
 };
 </script>
 

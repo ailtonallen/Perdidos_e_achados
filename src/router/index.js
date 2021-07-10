@@ -4,7 +4,7 @@ import Home from '../views/Home.vue'
 import Login from '../components/Login.vue'
 import Perdidos from '../views/Perdidos.vue'
 import CriarAnuncio from '../views/CriarAnuncio.vue'
-import Dashboard from '../views/Dashboard.vue'
+import Dashboard from '../components/Dashboard.vue'
 
 Vue.use(VueRouter)
 

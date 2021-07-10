@@ -35,7 +35,7 @@
       <a href="#" id="forgot_pswd">Forgot password?</a>
       <hr />
       <!-- <p>Don't have an account!</p>  -->
-      <button class="btn btn-primary btn-block" type="button" id="btn-signup">
+      <button @click="goRegister ()" class="btn btn-primary btn-block" type="button" id="btn-signup">
         <i class="fas fa-user-plus"></i> Sign up New Account
       </button>
     </div>
@@ -73,11 +73,14 @@ export default {
   methods: {
     login() {
       this.axios.post("http://localhost:3000/login", this.user).then((response) => {
-        
+         
         localStorage.setItem('token', response.data.token)
         localStorage.setItem('user', JSON.stringify(response.data.user))
         this.$router.push('/')
       });
+    },
+    goRegister () {
+      this.$router.push('/register')
     },
   },
 };

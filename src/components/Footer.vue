@@ -52,7 +52,7 @@
 								<img class="img-fluid" src="https://3.bp.blogspot.com/--C1wpaf_S4M/W7V__10nRoI/AAAAAAAAK24/1NSfapuYSIY0f0wzXY9NgoH0FjQLT07YACKgBGAs/s1600/maxresdefault.jpg" alt="">
                                 </div>
                                 <a href="#">{{ultimo.titulo}}</a>
-                                <p class="kilimanjaro_date">{{ultimo.data}}</p>
+                                <p class="kilimanjaro_date">{{formatDate(ultimo.data)}}</p>
                                 <p>{{ultimo.descricao}}</p>
                             </div>
                             
@@ -69,17 +69,6 @@
                             <div class="kilimanjaro_single_contact_info">
                                 <h5>Email:</h5>
                                 <p>ailtonallen@ideiasdinamicas.com <br> ailtonallen@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="kilimanjaro_part">
-                            <h5>Ultimos anúncios</h5>
-                            <div class="kilimanjaro_works">
-                                <a class="kilimanjaro_works_img" href="img/gallery/1.jpg"><img src="img/gallery/1.jpg" alt=""></a>
-                                <a class="kilimanjaro_works_img" href="img/gallery/4.jpg"><img src="img/gallery/4.jpg" alt=""></a>
-                                <a class="kilimanjaro_works_img" href="img/gallery/5.jpg"><img src="img/gallery/5.jpg" alt=""></a>
-                                <a class="kilimanjaro_works_img" href="img/gallery/7.jpg"><img src="img/gallery/7.jpg" alt=""></a>
-                                <a class="kilimanjaro_works_img" href="img/gallery/10.jpg"><img src="img/gallery/10.jpg" alt=""></a>
-                                <a class="kilimanjaro_works_img" href="img/gallery/11.jpg"><img src="img/gallery/11.jpg" alt=""></a>
                             </div>
                         </div>
                     </div>
@@ -100,6 +89,7 @@
 </template>
 
 <script>
+import moment from 'moment'
 export default {
 name: "Footer",
 data() {
@@ -114,6 +104,11 @@ methods: {
       this.axios.get("http://localhost:3000/ultimos").then((response)=>{
       this.ultimos = response.data;
     });
+    },
+    formatDate (date) {
+      var splitedDate = date.split('.')[0]
+
+      return moment(splitedDate, 'YYYY-MM-DDTHH:mm:ss').format('DD/MM/YYYY HH:mm:ss')
     },
 },
 created() {

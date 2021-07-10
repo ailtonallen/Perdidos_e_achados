@@ -2,8 +2,9 @@
   <header>
     <div class="content">
       <nav>
+         <router-link to="/">
         <p class="brand">Perdidos e<strong> Achados</strong></p>
-
+</router-link>
         <ul>
           <li>
             <router-link to="/perdidos">Perdidos</router-link>
@@ -31,9 +32,10 @@
           </h2>
           <p>
             Seu item perdido pode estar por aqui! <br />
-            Cadastre as informaçoes no site: <br />
+            Cadastre as informaçoes no site:
           </p>
         </div>
+        
       </div>
     </div>
   </header>
@@ -48,7 +50,12 @@ export default {
       localStorage.removeItem('user')
      localStorage.removeItem('token')
         this.$router.push('/login')
-      }
+      },
+goToHome () {
+      
+      this.$router.push('/')
+    },
+      
   },
   computed:{
     isLoggedIn(){

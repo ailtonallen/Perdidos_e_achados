@@ -99,7 +99,7 @@
           </button>
         </div>
         <!-- form-group// -->
-        <p class="text-center">Have an account? <a href="">Log In</a></p>
+        <p class="text-center">Have an account? <button class="btn btn-primary" @click="goLogin ()">Log In</button></p>
       </form>
     </article>
   </div>
@@ -163,12 +163,15 @@ export default {
       this.maintenanceUsers = {
         id: null,
         nome: null,
-        username: '',
-        telefone: '',
+        username: null,
+        telefone: null,
         email: null,
         password: null
       }
-    }
+    },
+    goLogin () {
+      this.$router.push('/login')
+    },
   }
 };
 

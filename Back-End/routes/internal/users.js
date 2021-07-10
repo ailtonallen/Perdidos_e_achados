@@ -89,6 +89,7 @@ router.post('/', (req, res) => {
   }).then((value) => {
     sanitize(value, {
       email: 'trim|lowerCase',
+      username:'trim|lowerCase',
       password: 'trim'
     })
 
