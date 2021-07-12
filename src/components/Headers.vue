@@ -2,9 +2,9 @@
   <header>
     <div class="content">
       <nav>
-         <router-link to="/">
-        <p class="brand">Perdidos e<strong> Achados</strong></p>
-</router-link>
+        <router-link to="/">
+          <p class="brand">Perdidos e<strong> Achados</strong></p>
+        </router-link>
         <ul>
           <li>
             <router-link to="/perdidos">Perdidos</router-link>
@@ -15,12 +15,20 @@
           <li>
             <router-link to="/sobre">Sobre</router-link>
           </li>
-          <li v-if="isLoggedIn">
-            <a @click="logout">Logout</a>
-          </li>
-          <li v-else>
-            <router-link to="/register">Register</router-link> |
-            <router-link to="/login">Login</router-link>
+          <li >
+            <a>{{ user.nome }}</a>
+            <ul>
+              <li>
+                Perfil
+              </li>
+              <li v-if="isLoggedIn">
+                <a @click="logout">Logout</a>
+              </li>
+              <li v-else>
+                <router-link to="/register">Register</router-link> |
+                <router-link to="/login">Login</router-link>
+              </li>
+            </ul>
           </li>
         </ul>
       </nav>
@@ -35,7 +43,6 @@
             Cadastre as informaçoes no site:
           </p>
         </div>
-        
       </div>
     </div>
   </header>
@@ -44,29 +51,34 @@
 <script>
 export default {
   name: "Headers",
-
-  methods: {
-        logout(){
-      localStorage.removeItem('user')
-     localStorage.removeItem('token')
-        this.$router.push('/login')
-      },
-goToHome () {
-      
-      this.$router.push('/')
-    },
-      
+  created() {
+    this.user = localStorage.getItem("user");
+    console.log(this.user)
   },
-  computed:{
-    isLoggedIn(){
-      if (localStorage.getItem('token')){
-        return true
-      }else {
-        return false
+  data() {
+    return {
+      user: null,
+    };
+  },
+  methods: {
+    logout() {
+      localStorage.removeItem("user");
+      localStorage.removeItem("token");
+      this.$router.push("/login");
+    },
+    goToHome() {
+      this.$router.push("/");
+    },
+  },
+  computed: {
+    isLoggedIn() {
+      if (localStorage.getItem("token")) {
+        return true;
+      } else {
+        return false;
       }
-      
-    }
-  }
+    },
+  },
 };
 </script>
 

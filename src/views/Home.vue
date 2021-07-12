@@ -12,7 +12,7 @@
         </div>
 
         <div class="filter-card">
-          <input
+          <input v-model="search"
             type="text"
             class="search-input"
             placeholder="Encontre o seu perdido"
@@ -84,6 +84,7 @@ export default {
   data() {
     return {
       anuncios: [],
+      search: null
     };
   },
   computed: {
@@ -93,7 +94,7 @@ export default {
   },
   methods: {
     getAnuncios() {
-      this.axios.get("http://localhost:3000/anuncios").then((response) => {
+      this.axios.post("http://localhost:3000/anuncios", {search: this.search}).then((response) => {
         this.anuncios = response.data;
       });
     },

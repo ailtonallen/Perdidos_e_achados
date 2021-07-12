@@ -1,12 +1,81 @@
 <template>
   <div class="container">
     <Dashboard />
+    <div
+      class="modal fade"
+      id="perdidoModal"
+      tabindex="-1"
+      aria-labelledby="anuncioModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5
+              class="modal-title">
+              Anuncio
+            </h5>
+
+            <button
+              @click="resetMaintenancePerdido()"
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close">
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <form>
+              
+
+              <div class="form-group mt-4">
+                <label>Descrição</label>
+                <input
+                  v-model="maintenancePerdido.titulo"
+                  type="text"
+                  class="form-control"
+                  placeholder="Descrição" />
+              </div>
+
+              <div class="form-check mt-4">
+                <label>Encontrado</label>
+                <input
+                  v-model="maintenancePerdido.status_id"
+                  type="checkbox"
+                  class="form-check-input">
+              </div>
+
+              
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              @click="resetMaintenancePerdido()"
+              ref="closeBtn"
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal">
+              Fechar
+            </button>
+
+
+            <button
+              @click="editPerdidos()"
+              type="button"
+              class="btn btn-primary">
+              Editar anúncio
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="row mt-4">
       <div class="col-lg-12">
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">#</th>
               <th scope="col">Id do Perdido</th>
               <th scope="col">Titulo do Perdido</th>
               <th scope="col">Descrição</th>
@@ -34,9 +103,9 @@
               <td>{{ perdido.id }}</td>
               <td>{{ perdido.titulo }}</td>
               <td>{{ perdido.descricao }}</td>
-              <td> {{ perdido.status}}</td>
+              <td> {{ perdido.status_id}}</td>
               <td>{{ formatDate(perdido.data) }}</td>
-              <td>{{ perdido.categoria }}</td>
+              <td>{{ perdido.categoria_id }}</td>
               
               <td>
                 <button
@@ -98,6 +167,7 @@
         </ul>
       </nav>
     </div>
+  </div>
 </template>
 
 <script>
@@ -138,14 +208,14 @@ export default {
 
   methods: {
     getPerdidos () {
-      this.axios.get('http://localhost:3000/perdidos' + this.pagination.page).then((response) => {
-        this.perdidos = response.data.data
-        this.pagination = response.data.meta.pagination
+      this.axios.get('http://localhost:3000/perdidos').then((response) => {
+        this.perdidos = response.data
+        
       })
     },
 
     removePerdido (perdidoId) {
-      this.axios.delete('http://localhost:3000/perdidos' + perdidoId,).then((response) => {
+      this.axios.delete('http://localhost:3000/perdidos/' + perdidoId,).then((response) => {
         if (response.data.code === 200) {
           this.getPerdidos()
         } else {
@@ -160,7 +230,7 @@ export default {
         status: this.maintenancePerdido.status,
       }
 
-      this.axios.put('http://localhost:3000/perdidos' + this.maintenancePerdido.id,
+      this.axios.put('http://localhost:3000/perdidos/' + this.maintenancePerdido.id,
       apiPerdido,
       ).then((response) => {
         if (response.data.code === 200) {

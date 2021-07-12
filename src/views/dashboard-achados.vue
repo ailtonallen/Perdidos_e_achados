@@ -6,7 +6,6 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">#</th>
               <th scope="col">Id do Achado</th>
               <th scope="col">Titulo do achado</th>
               <th scope="col">Descrição</th>
@@ -29,20 +28,20 @@
             </tr>
             <tr
               v-else
-              v-for="perdido in perdidos"
-              :key="perdido.id">
-              <td>{{ perdido.id }}</td>
-              <td>{{ perdido.titulo }}</td>
-              <td>{{ perdido.descricao }}</td>
-              <td>{{ perdido.status }}</td>
-              <td>{{ formatDate(perdido.data) }}</td>
+              v-for="achado in achados"
+              :key="achado.id">
+              <td>{{ achado.id }}</td>
+              <td>{{ achado.titulo }}</td>
+              <td>{{ achado.descricao }}</td>
+              <td>{{ achado.status }}</td>
+              <td>{{ formatDate(achado.data) }}</td>
               <td>
                 <button
-                  @click="openEditAchadoModal(perdido)"
+                  @click="openEditAchadoModal(achado)"
                   type="button"
                   class="btn btn-outline-primary"
                   data-bs-toggle="modal"
-                  data-bs-target="#perdidoModal">
+                  data-bs-target="#achadoModal">
                   Editar
                 </button>
               </td>
@@ -96,6 +95,7 @@
         </ul>
       </nav>
     </div>
+  </div>
 </template>
 
 <script>
@@ -109,7 +109,7 @@ export default {
   },
 
   computed: {
-    hasTodos () {
+    hasAchados () {
       return this.achados.length > 0
     }
   },
@@ -135,14 +135,14 @@ export default {
 
   methods: {
     getAchados () {
-      this.axios.get('http://localhost:3000/achados' + this.pagination.page).then((response) => {
-        this.achados = response.data.data
-        this.pagination = response.data.meta.pagination
+      this.axios.get('http://localhost:3000/achados').then((response) => {
+        this.achados = response.data
+        
       })
     },
 
     removeAchado (achadoId) {
-      this.axios.delete('' + achadoId,).then((response) => {
+      this.axios.delete('http://localhost:3000/achados/' + achadoId,).then((response) => {
         if (response.data.code === 200) {
           this.getAchados()
         } else {

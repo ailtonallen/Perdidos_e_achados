@@ -23,13 +23,13 @@
             </li>
           
             <li class="nav-item">
-              <router-link to="/dashboard-perdidos">
+              <router-link to="/dashboard-achados">
                 <span data-feather="users"></span>
                 Achados
               </router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/dashboard-perdidos">
+              <router-link to="/dashboard-users">
                 <span data-feather="bar-chart-2"></span>
                 Usuarios
               </router-link>
