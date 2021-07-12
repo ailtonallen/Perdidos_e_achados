@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    
+    <Dashboard />
     <div class="row mt-4">
       <div class="col-lg-12">
         <table class="table table-striped">
@@ -21,7 +21,7 @@
 
           <tbody>
             <tr
-              v-if="!hasTodos">
+              v-if="!hasAchados">
               <td
                 colspan="6">
                 Não existem achados criadas!
@@ -29,36 +29,26 @@
             </tr>
             <tr
               v-else
-              v-for="todo in todos"
-              :key="todo.id">
-              <td>{{ todo.id }}</td>
-              <td>{{ todo.user_id }}</td>
-              <td>{{ todo.title }}</td>
-              <td>
-                <i
-                  v-if="todo.completed"
-                  class="fas fa-check text-success">
-                </i>
-                <i
-                  v-else
-                  class="fas fa-times text-danger">
-                </i>
-              </td>
-              <td>{{ formatDate(todo.created_at) }}</td>
-              <td>{{ formatDate(todo.updated_at) }}</td>
+              v-for="perdido in perdidos"
+              :key="perdido.id">
+              <td>{{ perdido.id }}</td>
+              <td>{{ perdido.titulo }}</td>
+              <td>{{ perdido.descricao }}</td>
+              <td>{{ perdido.status }}</td>
+              <td>{{ formatDate(perdido.data) }}</td>
               <td>
                 <button
-                  @click="openEditTodoModal(todo)"
+                  @click="openEditAchadoModal(perdido)"
                   type="button"
                   class="btn btn-outline-primary"
                   data-bs-toggle="modal"
-                  data-bs-target="#todoModal">
+                  data-bs-target="#perdidoModal">
                   Editar
                 </button>
               </td>
               <td>
                 <button
-                  @click="removeTodo(todo.id)"
+                  @click="removeAchado(achado.id)"
                   type="button"
                   class="btn btn-outline-danger">
                   Remover
@@ -66,7 +56,7 @@
               </td>
               <td>
                 <button
-                  @click="goToDetails(todo.id)"
+                  @click="goToDetails(achado.id)"
                   type="button"
                   class="btn btn-outline-success">
                   Detalhes
@@ -110,29 +100,29 @@
 
 <script>
 import moment from 'moment'
+import Dashboard from '../components/Dashboard.vue'
 
 export default {
-  name: 'Todos',
+  name: 'Achados',
 
-  components: {
+  components: { Dashboard
   },
 
   computed: {
     hasTodos () {
-      return this.todos.length > 0
+      return this.achados.length > 0
     }
   },
 
   data () {
     return {
-      maintenanceTodo: {
+      maintenanceAchado: {
         id: null,
-        userId: null,
-        title: '',
-        completed: false
+        titulo: null,
+        status: null,
       },
 
-      todos: [],
+      achados: [],
 
       pagination: {
         total: null,
@@ -145,14 +135,14 @@ export default {
 
   methods: {
     getAchados () {
-      this.axios.get('' + this.pagination.page).then((response) => {
-        this.todos = response.data.data
+      this.axios.get('http://localhost:3000/achados' + this.pagination.page).then((response) => {
+        this.achados = response.data.data
         this.pagination = response.data.meta.pagination
       })
     },
 
-    removeAchado (todoId) {
-      this.axios.delete('https://gorest.co.in/public-api/todos/' + todoId,).then((response) => {
+    removeAchado (achadoId) {
+      this.axios.delete('' + achadoId,).then((response) => {
         if (response.data.code === 200) {
           this.getAchados()
         } else {
@@ -163,35 +153,30 @@ export default {
 
     editAchados () {
       let apiAchados = {
-        titulo: this.maintenanceTodo.userId,
-        status: this.maintenanceTodo.title,
-        completed: this.maintenanceTodo.completed,
+        titulo: this.maintenanceAchados.titulo,
+        status: this.maintenanceAchados.status,
+        
       }
 
-      this.axios.put('https://gorest.co.in/public-api/todos/' + this.maintenanceTodo.id,
-      apiTodo,
-      {
-        headers: {
-          Authorization: 'Bearer 19cba85ee0aae784b1ebd27da60e9fda8750deaa140b5da0411cbcefc2f2a2c3'
-        }
-      }).then((response) => {
+      this.axios.put('http://localhost:3000/achados' + this.maintenanceAchado.id,
+      apiAchados,
+      ).then((response) => {
         if (response.data.code === 200) {
-          this.getTodos()
+          this.getAchados()
 
-          this.resetMaintenanceTodo()
+          this.resetMaintenanceAchado()
         } else {
-          alert('Erro ao editar tarefa!')
+          alert('Erro ao editar achado!')
         }
       })
     },
 
-    openEditTodoModal (todo) {
-      this.maintenanceTodo = {
-        id: todo.id,
-        userId: todo.user_id,
-        title: todo.title,
-        completed: todo.completed
-      }
+    openEditTodoModal (achado) {
+      this.maintenanceAchado = {
+        id: achado.id,
+        titulo: achado.titulo,
+        status: achado.status,
+              }
     },
 
     formatDate (date) {
@@ -216,12 +201,12 @@ export default {
       this.getAchados()
     },
 
-    resetMaintenanceTodo () {
-      this.maintenanceTodo = {
+    resetMaintenanceAchado () {
+      this.maintenanceAchado = {
         id: null,
-        userId: null,
-        title: '',
-        completed: false
+        titulo: null,
+        status:null,
+        
       }
     }
   },
