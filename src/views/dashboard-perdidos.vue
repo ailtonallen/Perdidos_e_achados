@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <Dashboard />
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <div
       class="modal fade"
       id="perdidoModal"
@@ -29,12 +30,12 @@
               
 
               <div class="form-group mt-4">
-                <label>Descrição</label>
+                <label>Titulo</label>
                 <input
                   v-model="maintenancePerdido.titulo"
                   type="text"
                   class="form-control"
-                  placeholder="Descrição" />
+                  placeholder="Titulo" />
               </div>
 
               <div class="form-check mt-4">
@@ -81,10 +82,7 @@
               <th scope="col">Descrição</th>
               <th scope="col">Estado</th>
               <th scope="col">Data</th>
-              <th scope="col">Categoria</th>
-              <th></th>
-              <th></th>
-              <th></th>
+              
             </tr>
           </thead>
 
@@ -92,7 +90,7 @@
             <tr
               v-if="!hasPerdidos">
               <td
-                colspan="6">
+                colspan="5">
                 Não existem perdidos criadas!
               </td>
             </tr>
@@ -103,9 +101,9 @@
               <td>{{ perdido.id }}</td>
               <td>{{ perdido.titulo }}</td>
               <td>{{ perdido.descricao }}</td>
-              <td> {{ perdido.status_id}}</td>
+              <td> {{ perdido.status}}</td>
               <td>{{ formatDate(perdido.data) }}</td>
-              <td>{{ perdido.categoria_id }}</td>
+            
               
               <td>
                 <button
@@ -125,15 +123,7 @@
                   Remover
                 </button>
               </td>
-              <td>
-                <button
-                  @click="goToDetails(perdido.id)"
-                  type="button"
-                  class="btn btn-outline-success">
-                  Detalhes
-                </button>
-              </td>
-            </tr>
+              </tr>
           </tbody>
         </table>
       </div>
@@ -167,6 +157,7 @@
         </ul>
       </nav>
     </div>
+    </main>
   </div>
 </template>
 
@@ -191,7 +182,7 @@ export default {
       maintenancePerdido: {
         id: null,
         titulo: null,
-        descricao: null,
+        status: null,
         data: null
       },
 
@@ -208,7 +199,7 @@ export default {
 
   methods: {
     getPerdidos () {
-      this.axios.get('http://localhost:3000/perdidos').then((response) => {
+      this.axios.get('http://localhost:3000/perdidosD').then((response) => {
         this.perdidos = response.data
         
       })

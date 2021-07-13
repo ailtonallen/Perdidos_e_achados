@@ -1,6 +1,76 @@
 <template>
   <div class="container">
     <Dashboard />
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div
+      class="modal fade"
+      id="achadoModal"
+      tabindex="-1"
+      aria-labelledby="anuncioModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5
+              class="modal-title">
+              Anuncio
+            </h5>
+
+            <button
+              @click="resetMaintenanceAchado()"
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close">
+            </button>
+          </div>
+
+          <div class="modal-body">
+            
+              
+
+              <div class="form-group mt-4">
+                <label>Titulo</label>
+                <input
+                  v-model="maintenanceAchado.titulo"
+                  type="text"
+                  class="form-control"
+                  placeholder="Titulo" />
+              </div>
+
+              <div class="form-check mt-4">
+                <label>Devolvido</label>
+                <input
+                  v-model="maintenanceAchado.status_id"
+                  type="checkbox"
+                  class="form-check-input">
+              </div>
+
+              
+            
+          </div>
+
+          <div class="modal-footer">
+            <button
+              @click="resetMaintenanceAchado()"
+              ref="closeBtn"
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal">
+              Fechar
+            </button>
+
+
+            <button
+              @click="editAchados()"
+              type="button"
+              class="btn btn-primary">
+              Editar anúncio
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="row mt-4">
       <div class="col-lg-12">
         <table class="table table-striped">
@@ -11,7 +81,7 @@
               <th scope="col">Descrição</th>
               <th scope="col">Estado</th>
               <th scope="col">Data</th>
-              <th scope="col">Categoria</th>
+              
               <th></th>
               <th></th>
               <th></th>
@@ -53,14 +123,7 @@
                   Remover
                 </button>
               </td>
-              <td>
-                <button
-                  @click="goToDetails(achado.id)"
-                  type="button"
-                  class="btn btn-outline-success">
-                  Detalhes
-                </button>
-              </td>
+              
             </tr>
           </tbody>
         </table>
@@ -95,10 +158,12 @@
         </ul>
       </nav>
     </div>
+    </main>
   </div>
 </template>
 
 <script>
+
 import moment from 'moment'
 import Dashboard from '../components/Dashboard.vue'
 
@@ -135,7 +200,7 @@ export default {
 
   methods: {
     getAchados () {
-      this.axios.get('http://localhost:3000/achados').then((response) => {
+      this.axios.get('http://localhost:3000/achadosD').then((response) => {
         this.achados = response.data
         
       })
@@ -152,15 +217,9 @@ export default {
     },
 
     editAchados () {
-      let apiAchados = {
-        titulo: this.maintenanceAchados.titulo,
-        status: this.maintenanceAchados.status,
-        
-      }
 
-      this.axios.put('http://localhost:3000/achados' + this.maintenanceAchado.id,
-      apiAchados,
-      ).then((response) => {
+      this.axios.put('http://localhost:3000/achados/' + this.maintenanceAchado.id,
+      this.maintenanceAchado).then((response) => {
         if (response.data.code === 200) {
           this.getAchados()
 
@@ -171,7 +230,7 @@ export default {
       })
     },
 
-    openEditTodoModal (achado) {
+    openEditAchadoModal (achado) {
       this.maintenanceAchado = {
         id: achado.id,
         titulo: achado.titulo,

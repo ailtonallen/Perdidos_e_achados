@@ -1,5 +1,5 @@
 const router = require('express').Router()
-
+const { validate } = require('indicative/validator')
 const db = require('../../db')
 
 router.get('/', (req, res) => {
@@ -20,20 +20,13 @@ router.get('/', (req, res) => {
   router.delete('/:id', (req, res) => {
     const { id } = req.params
   
-      const [anuncio] = results
-  
-      db.query('DELETE FROM anuncio WHERE id = ?', [id], (error, _, __) => {
-        if (error) {
-          throw error
-        }
-  
-        res.send({
-          code: 200,
-          meta: null,
-          data: anuncio
-        })
-      })
+    db.query('DELETE FROM anuncio WHERE id = ?', [id], (error, results) => {
+      if (error) {
+        throw error
+      }
+      res.send(results)
     })
+  })
   router.put('/:id', (req, res) => {
     const { id } = req.params
   
@@ -41,14 +34,16 @@ router.get('/', (req, res) => {
   
     validate(anuncio, {
       status: 'required',
-      titulo: 'required',
-    }).then(async (value) => {
-      sanitize(value, {
-        status: 'integer',
-        titulo: ''
-      })
+       titulo: 'required',
+     }).then(async (value) => {
+       sanitize(value, {
+         status: 'integer',
+         titulo: ''
+       })
   
-      db.query('UPDATE anuncio SET ? WHERE id = ?', [value, id], (error, results, _) => {
+      console.log(anuncio)
+
+      db.query('UPDATE anuncio SET titulo = ?, status_id = ? WHERE id = ?', [anuncio.titulo, anuncio.status, id], (error, results, _) => {
         if (error) {
           throw error
         }
@@ -65,8 +60,8 @@ router.get('/', (req, res) => {
           })
         })
       })
-    }).catch((error) => {
-      res.status(400).send(error)
-    })
+     }).catch((error) => {
+       res.status(400).send(error)
+     })
   })
   module.exports = router
