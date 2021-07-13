@@ -41,7 +41,7 @@
               <div class="form-check mt-4">
                 <label>Devolvido</label>
                 <input
-                  v-model="maintenanceAchado.status_id"
+                
                   type="checkbox"
                   class="form-check-input">
               </div>
