@@ -273,28 +273,23 @@ export default {
 
       console.log(loggedUser);
 
-      let apiAnuncios = {
-        titulo: this.maintenanceAnuncios.titulo,
-        descricao: this.maintenanceAnuncios.descricao,
-        recompensa: this.maintenanceAnuncios.recompensa,
-        data: this.maintenanceAnuncios.data,
-        localizacao_id: this.maintenanceAnuncios.localizacao_id,
-        categoria_id: this.maintenanceAnuncios.categoria_id,
-        status_id: this.maintenanceAnuncios.status_id,
-        tipo_id: this.maintenanceAnuncios.tipo_id,
-        user_id: loggedUser.id,
-        telefones: this.maintenanceAnuncios.telefones,
-        local_sucedido: this.maintenanceAnuncios.local_sucedido,
-      };
-
+      
       var formData = new FormData()
 
-      formData.append('file', $document.getEle)
+      formData.append('file', document.getElementById)
       formData.append('local_sucedido', this.maintenanceAnuncios.local_sucedido)
       formData.append('telefones', this.maintenanceAnuncios.telefones)
+      formData.append('titulo', this.maintenanceAnuncios.titulo)
+      formData.append('descricao', this.maintenanceAnuncios.descricao)
+      formData.append('data', this.maintenanceAnuncios.data)
+      formData.append('recompensa', this.maintenanceAnuncios.recompensa)
+      formData.append('user_id', this.maintenanceAnuncios.loggedUser.id)
+      formData.append('localizacao_id', this.maintenanceAnuncios.localizacao_id)
+      formData.append('categoria_id', this.maintenanceAnuncios.categoria_id)
+      formData.append('status_id', this.maintenanceAnuncios.status_id)
+      formData.append('tipo_id', this.maintenanceAnuncios.tipo_id)
 
-
-      this.axios
+this.axios
         .post("http://localhost:3000/anuncio", formData, { 
           headers: {'Content-Type': 'miltpart/form-data'} })
         .then((response) => {

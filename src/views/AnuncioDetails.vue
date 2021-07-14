@@ -35,7 +35,7 @@
           <h3 class="title mb-3">{{anuncio.titulo}}</h3>
 
           <p class="price-detail-wrap">
-            <span class="price h3 text-warning">
+            <span class="price h3 text-warning"> Recompensa:
               <span class="currency">MZN </span><span class="num">{{anuncio.recompensa}}</span>
             </span>
           </p>
