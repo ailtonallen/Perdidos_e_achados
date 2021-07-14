@@ -30,26 +30,22 @@ router.get('/', (req, res) => {
   
   router.put('/:id', (req, res) => {
     const { id } = req.params
-    const anuncio =  {
-      titulo: req.body.titulo
-    }
-    console.log(id);
-    console.log(anunc);
-    // let updateIdanuncio = id.
-    db.query('UPDATE anuncio set titulo =?, WHERE id = ?', [anuncio.titulo, id] ,(error, results) => {
   
-      // if (error) {
-      //   throw error
-      //  }
-      //  const myStatus =  {
-      //   status: results.insertId
-      // }
-      //  db.query('UPDATE anuncio set status_id = ?, WHERE id = ?', [myStatus, id] ,(error, results) => { 
-      // if (error) {
-      //   throw error
-      //  }
-      //  });
-      res.send(results)
+    const { titulo } = req.body
+  
+    validate(id, {
+      titulo: 'required',
+      status: 'integer'
+    }).then((value) => {
+      db.query(`UPDATE anuncio SET titulo = '${titulo}' WHERE id = ${id}`, (error, results, _) => {
+        if (error) {
+          throw error
+        }
+  
+        res.send(titulo)
+      })
+    }).catch((error) => {
+      res.status(400).send(error)
     })
   })
   module.exports = router

@@ -25,7 +25,7 @@
         </div>
         <div class="col-md-8 py-5 border">
           <h4 class="pb-4">Insira os detalhes do anúncio</h4>
-          <form>
+          <form enctype="multipart/form-data">
             <div class="form-row">
               <div class="form-group col-md-6">
                 Titulo do anúncio
@@ -171,7 +171,7 @@
                 ></textarea>
                 <br />
                 Faça upload de uma foto: <br />
-                <input type="file" name="" id="file" />
+                <input type="file" @change="updateFile" ref="file" id="file" />
               </div>
             </div>
             <div class="form-row">
@@ -234,6 +234,7 @@ export default {
         status_id: null,
         local_sucedido: null,
         telefones: null,
+        file: null
       },
 
       locais: [],
@@ -265,6 +266,11 @@ export default {
       });
     },
 
+updateFile(file){
+
+this.maintenanceAnuncios.file = file.target.files[0] 
+},
+
     addAnuncios() {
       let loggedUser = localStorage.getItem("user");
       if (loggedUser) {
@@ -275,15 +281,15 @@ export default {
 
       
       var formData = new FormData()
-
-      formData.append('file', document.getElementById)
+console.log(this.$refs.file)
+      formData.append('foto', this.maintenanceAnuncios.file)
       formData.append('local_sucedido', this.maintenanceAnuncios.local_sucedido)
       formData.append('telefones', this.maintenanceAnuncios.telefones)
       formData.append('titulo', this.maintenanceAnuncios.titulo)
       formData.append('descricao', this.maintenanceAnuncios.descricao)
       formData.append('data', this.maintenanceAnuncios.data)
       formData.append('recompensa', this.maintenanceAnuncios.recompensa)
-      formData.append('user_id', this.maintenanceAnuncios.loggedUser.id)
+      formData.append('user_id', loggedUser.id)
       formData.append('localizacao_id', this.maintenanceAnuncios.localizacao_id)
       formData.append('categoria_id', this.maintenanceAnuncios.categoria_id)
       formData.append('status_id', this.maintenanceAnuncios.status_id)
@@ -291,7 +297,7 @@ export default {
 
 this.axios
         .post("http://localhost:3000/anuncio", formData, { 
-          headers: {'Content-Type': 'miltpart/form-data'} })
+          headers: {'Content-Type': 'multipart/form-data'} })
         .then((response) => {
           if (response.data.code === 200) {
             alert("Anuncio criado com sucesso!");

@@ -38,7 +38,7 @@
             <div class="card bg-light">
               <img
                 class="card-img-top"
-                src="../assets/gato-persa-3.jpg"
+                :src="'http://localhost:3000/' + anuncio.filename"
                 alt="Card image cap"
               />
               <div class="shape">

@@ -49,7 +49,7 @@
                             <div v-for="ultimo in ultimos"
               :key="ultimo.id" class="kilimanjaro_blog_area">
                                 <div class="kilimanjaro_thumb">
-								<img class="img-fluid" src="https://3.bp.blogspot.com/--C1wpaf_S4M/W7V__10nRoI/AAAAAAAAK24/1NSfapuYSIY0f0wzXY9NgoH0FjQLT07YACKgBGAs/s1600/maxresdefault.jpg" alt="">
+								<img class="img-fluid" :src="'http://localhost:3000/' + ultimo.filename">
                                 </div>
                                 <a href="#">{{ultimo.titulo}}</a>
                                 <p class="kilimanjaro_date">{{formatDate(ultimo.data)}}</p>

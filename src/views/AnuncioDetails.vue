@@ -7,25 +7,13 @@
           <div class="img-big-wrap">
             <div>
               <a href="#"
-                ><img src="https://s9.postimg.org/tupxkvfj3/image.jpg"
+                ><img 
+                :src="'http://localhost:3000/' + anuncio.filename"
               /></a>
             </div>
           </div>
           <!-- slider-product.// -->
-          <div class="img-small-wrap">
-            <div class="item-gallery">
-              <img src="https://s9.postimg.org/tupxkvfj3/image.jpg" />
-            </div>
-            <div class="item-gallery">
-              <img src="https://s9.postimg.org/tupxkvfj3/image.jpg" />
-            </div>
-            <div class="item-gallery">
-              <img src="https://s9.postimg.org/tupxkvfj3/image.jpg" />
-            </div>
-            <div class="item-gallery">
-              <img src="https://s9.postimg.org/tupxkvfj3/image.jpg" />
-            </div>
-          </div>
+          
           <!-- slider-nav.// -->
         </article>
         <!-- gallery-wrap .end// -->

@@ -200,7 +200,7 @@ export default {
 
   methods: {
     getAchados () {
-      this.axios.get('http://localhost:3000/achadosD').then((response) => {
+      this.axios.get('http://localhost:3000/achados').then((response) => {
         this.achados = response.data
         
       })
@@ -225,7 +225,7 @@ export default {
 
           this.resetMaintenanceAchado()
         } else {
-          alert('Erro ao editar achado!')
+          alert('Sucesso ao editar o anuncio!')
         }
       })
     },

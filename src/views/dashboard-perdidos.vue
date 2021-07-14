@@ -199,7 +199,7 @@ export default {
 
   methods: {
     getPerdidos () {
-      this.axios.get('http://localhost:3000/perdidosD').then((response) => {
+      this.axios.get('http://localhost:3000/perdidos').then((response) => {
         this.perdidos = response.data
         
       })
@@ -229,7 +229,7 @@ export default {
 
           this.resetMaintenancePerdido()
         } else {
-          alert('Erro ao editar Perdido!')
+          alert('Sucesso ao editar Perdido!')
         }
       })
     },
