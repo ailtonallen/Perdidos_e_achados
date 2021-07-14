@@ -171,7 +171,7 @@
                 ></textarea>
                 <br />
                 Faça upload de uma foto: <br />
-                <input type="file" name="" id="" />
+                <input type="file" name="" id="file" />
               </div>
             </div>
             <div class="form-row">
@@ -287,8 +287,16 @@ export default {
         local_sucedido: this.maintenanceAnuncios.local_sucedido,
       };
 
+      var formData = new FormData()
+
+      formData.append('file', $document.getEle)
+      formData.append('local_sucedido', this.maintenanceAnuncios.local_sucedido)
+      formData.append('telefones', this.maintenanceAnuncios.telefones)
+
+
       this.axios
-        .post("http://localhost:3000/anuncio", apiAnuncios)
+        .post("http://localhost:3000/anuncio", formData, { 
+          headers: {'Content-Type': 'miltpart/form-data'} })
         .then((response) => {
           if (response.data.code === 200) {
             alert("Anuncio criado com sucesso!");

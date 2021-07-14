@@ -16,7 +16,7 @@
             <router-link to="/sobre">Sobre</router-link>
           </li>
           <li >
-            <a>{{ user.nome }}</a>
+            <a></a>
             <ul>
               <li>
                 Perfil

@@ -1,5 +1,9 @@
 const router = require('express').Router()
 const { validate } = require('indicative/validator')
+var multer  = require('multer')
+var fs  = require('fs')
+var path  = require('path')
+var upload = multer({ dest: 'uploads/' })
 
 const db = require('../../db')
 
@@ -67,20 +71,36 @@ router.get('/:id', (req, res) => {
 })
 })
 
-router.post('/', (req, res) => {
+router.post('/', upload.single("foto"), (req, res) => {
   const anuncio = req.body
+  const { filename, destination, originalname } =  req.file
 
-  validate(anuncio, {
+  const ext = path.extname(originalname);
+  const source_file =  `${destination}/${filename}`;
+  const target_file =  `${destination}${filename}${ext}`;
+
+fs.renameSync(source_file, target_file);
+
+console.log(ext);
+console.log(req.file);
+
+validate(anuncio, {
     titulo: 'required',
     descricao: 'required',
     data:'required|date',
     localizacao_id:'required|integer',
     categoria_id: 'required|integer',
     status_id: 'required|integer',
-    tipo_id:'required|integer',
-    
-    
+    tipo_id:'required|integer'
   }).then((value) => {
+    const MIME_TYPE_MAP = {
+      'image/png': 'png',
+      'image/jpeg': 'jpeg',
+      'image/jpg': 'jpg'
+    };
+    
+    value.filename = target_file;   
+
     db.query('INSERT INTO anuncio SET ?', [value], (error, results, _) => {
       if (error) {
         throw error

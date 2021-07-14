@@ -1,4 +1,6 @@
 
+const express = require('express')
+
 const usersRouter = require('./internal/users')
 const anunciosRouter = require('./internal/anuncio')
 
@@ -19,9 +21,12 @@ const achadosRouter = require('./internal/achados')
 const perdidosRouter = require('./internal/perdidos')
 
 const login = require('./public/login')
+const path = require('path')
 
 module.exports = {
   register(app) {
+
+    app.use('/uploads', express.static(path.join('uploads')))
 
     app.use('/anuncios', anunciosHRouter)
     app.use('/achados', achadosRouter)
@@ -36,7 +41,6 @@ module.exports = {
     app.use('/detalhes', detalhesRouter)
     app.use('/categoria', categoriaRouter)
     app.use('/localizacao', localizacaoRouter)
-    
     app.post('/login', login)
   }
 }
